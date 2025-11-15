@@ -1,6 +1,7 @@
-import { IconUser, IconSettings } from '@tabler/icons-react';
+import { IconUser, IconSettings, IconStopwatch } from '@tabler/icons-react';
 import { Link } from 'react-router-dom';
 import { useAuthenticated } from '../../context/AuthContext';
+import Logo from '/assets/images/logo.svg';
 import './Header.css';
 
 export default function Header() {
@@ -10,12 +11,17 @@ export default function Header() {
         <header>
             <div className='header-container'>
                 <Link to='/'>
-                    <div className='logo'></div>
+                    <img src={Logo} alt="Logo" className='logo' />
                 </Link>
                 <nav>
                     <ul className='menu'>
                         {isAuthenticated ? (
                             <>
+                                <li>
+                                    <Link to='/cronometro'>
+                                        <IconStopwatch size={32} />
+                                    </Link>
+                                </li>
                                 <li>
                                     <Link to='/perfil'>
                                         <IconUser size={32} />

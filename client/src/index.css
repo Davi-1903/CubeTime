@@ -2,7 +2,12 @@
 
 @font-face {
     font-family: 'Chivo';
-    src: url('assets/Chivo_Mono/ChivoMono-VariableFont_wght.ttf');
+    src: url('assets/fonts/Chivo_Mono/ChivoMono-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('assets/fonts/Roboto/Roboto-VariableFont_wdth\,wght.ttf');
 }
 
 * {
@@ -21,7 +26,8 @@
     --base-color5: #ef0010;
     --base-color6: #12ef20;
     --text-color: #303060;
-    --font-base: 'Chivo'
+    --font-base: 'Chivo';
+    --font-secundary: 'Roboto'
 }
 
 .wrapper {
