@@ -1,22 +1,30 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useOpenSignIn, useOpenSignUp } from '../../context/OpenAuth';
 import './Forms.css';
 
 export default function SignIn() {
     const { setOpenSignIn } = useOpenSignIn();
     const { setOpenSignUp } = useOpenSignUp();
+    const [isClosing, setClosing] = useState(false);
+    const containerRef = useRef(null);
     const formRef = useRef(null);
 
     function handleChangeForm() {
-        setOpenSignIn(false);
+        setClosing(true);
         setOpenSignUp(true);
+    }
+
+    function handleAnimationEnd() {
+        if (isClosing) {
+            setOpenSignIn(false);
+            document.body.style.overflow = 'auto';
+        }
     }
 
     useEffect(() => {
         function handleClick(event) {
             if (!formRef.current?.contains(event.target)) {
-                setOpenSignIn(false);
-                document.body.style.overflow = 'auto';
+                setClosing(true);
             }
         }
 
@@ -25,7 +33,11 @@ export default function SignIn() {
     }, [setOpenSignIn]);
 
     return (
-        <div className='form-container'>
+        <div
+            ref={containerRef}
+            className={`form-container ${isClosing ? 'fade-out' : 'fade-in'}`}
+            onAnimationEnd={handleAnimationEnd}
+        >
             <form ref={formRef}>
                 <h2>SignIn</h2>
                 <div className='input-label'>
@@ -38,7 +50,10 @@ export default function SignIn() {
                 </div>
                 <button type='submit'>Entrar</button>
                 <p>
-                    Não tem uma conta? <span className='link' onClick={handleChangeForm}>SignUp</span>
+                    Não tem uma conta?{' '}
+                    <span className='link' onClick={handleChangeForm}>
+                        SignUp
+                    </span>
                 </p>
             </form>
         </div>

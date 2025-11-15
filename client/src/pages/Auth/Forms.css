@@ -3,9 +3,19 @@
     position: fixed;
     inset: 0;
     display: grid;
+    opacity: 0;
     place-items: center;
     background-color: hsl(from var(--text-color) h s l / 0.1);
     backdrop-filter: blur(1rem);
+}
+
+.form-container.fade-in {
+    animation: fadein 125ms forwards ease-in-out;
+}
+
+.form-container.fade-out {
+    animation: fadeout 125ms forwards ease-in-out;
+    pointer-events: none;
 }
 
 .form-container form {
@@ -63,5 +73,23 @@
 
     &:hover {
         text-decoration: underline;
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
     }
 }
