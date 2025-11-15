@@ -1,8 +1,9 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import App from './App.jsx';
 import { AuthenticatedProvider } from './context/AuthContext.jsx';
+import { OpenAuthProvider } from './context/OpenAuth.jsx';
+import App from './App.jsx';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -20,7 +21,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
     <StrictMode>
         <AuthenticatedProvider>
-            <RouterProvider router={router} />
+            <OpenAuthProvider>
+                <RouterProvider router={router} />
+            </OpenAuthProvider>
         </AuthenticatedProvider>
     </StrictMode>
 );

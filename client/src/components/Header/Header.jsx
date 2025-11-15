@@ -1,17 +1,30 @@
 import { IconUser, IconSettings, IconStopwatch } from '@tabler/icons-react';
 import { Link } from 'react-router-dom';
 import { useAuthenticated } from '../../context/AuthContext';
+import { useOpenSignIn, useOpenSignUp } from '../../context/OpenAuth';
 import Logo from '/assets/images/logo.svg';
 import './Header.css';
 
 export default function Header() {
     const { isAuthenticated } = useAuthenticated();
+    const { setOpenSignIn } = useOpenSignIn();
+    const { setOpenSignUp } = useOpenSignUp();
+
+    function handleOpenSignIn() {
+        setOpenSignIn(true);
+        document.body.style.overflow = 'hidden';
+    }
+
+    function handleOpenSignUp() {
+        setOpenSignUp(true);
+        document.body.style.overflow = 'hidden';
+    }
 
     return (
         <header>
             <div className='header-container'>
                 <Link to='/'>
-                    <img src={Logo} alt="Logo" className='logo' />
+                    <img src={Logo} alt='Logo' className='logo' />
                 </Link>
                 <nav>
                     <ul className='menu'>
@@ -36,10 +49,14 @@ export default function Header() {
                         ) : (
                             <>
                                 <li>
-                                    <button id='signin'>SignIn</button>
+                                    <button id='signin' onClick={handleOpenSignIn}>
+                                        SignIn
+                                    </button>
                                 </li>
                                 <li>
-                                    <button id='signup'>SignUp</button>
+                                    <button id='signup' onClick={handleOpenSignUp}>
+                                        SignUp
+                                    </button>
                                 </li>
                             </>
                         )}
