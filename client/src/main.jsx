@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AuthenticatedProvider } from './context/AuthContext.jsx';
 import { OpenAuthProvider } from './context/OpenAuth.jsx';
 import App from './App.jsx';
+import Profile from './pages/Profile/Profile.jsx';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -11,8 +12,7 @@ const router = createBrowserRouter([
         path: '/',
         element: <App />,
         children: [
-            { path: 'config', element: <h1>Config</h1> },
-            { path: 'perfil', element: <h1>Profile</h1> },
+            { path: 'perfil', element: <Profile /> },
             { path: 'cronometro', element: <h1>Cronometro</h1> },
         ],
     },

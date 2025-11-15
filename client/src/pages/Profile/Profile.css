@@ -1,0 +1,62 @@
+.profile-container {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.profile-container article {
+    background-color: hsl(from var(--base-color1) h s calc(l + 10));
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    width: 24rem;
+    flex-direction: column;
+    gap: 2rem;
+    box-shadow: 0 0 2rem hsl(from var(--text-color) h s l / 0.2);
+}
+
+.profile-container article > .foto-perfil {
+    width: 40%;
+    margin-inline: 30%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font: bold 4rem var(--font-base);
+    color: var(--base-color1);
+    background-color: var(--base-color2);
+}
+
+.profile-container article .input-label > label {
+    display: block;
+    font: normal 1.2rem var(--font-secundary);
+    color: var(--text-color);
+}
+
+.profile-container article .input-label > input {
+    outline: none;
+    width: 100%;
+    padding-inline: 1rem;
+    aspect-ratio: 20 / 3;
+    border-radius: .5rem;
+    font: normal 1rem var(--font-secundary);
+    background-color: hsl(from var(--base-color1) h s calc(l - 5));
+}
+
+.profile-container article > button {
+    cursor: pointer;
+    aspect-ratio: 20 / 3;
+    font: normal 1.2rem var(--font-secundary);
+    border-radius: .5rem;
+    color: var(--base-color1);
+    transition: all 125ms;
+
+    &#sair { background-color: hsl(from var(--base-color2) h s calc(l - 10)); }
+    &#sair:hover { box-shadow: 0 0 1rem hsl(from var(--base-color2) h s l); }
+    
+    &#editar { background-color: hsl(from var(--base-color6) h s calc(l - 10)); }
+    &#editar:hover { box-shadow: 0 0 1rem hsl(from var(--base-color6) h s l); }
+    
+    &#excluir { background-color: hsl(from var(--base-color5) h s calc(l - 10)); }
+    &#excluir:hover { box-shadow: 0 0 1rem hsl(from var(--base-color5) h s l); }
+}
