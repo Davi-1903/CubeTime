@@ -1,7 +1,14 @@
+import Header from './components/Header/Header';
+import Home from './pages/Home/Home';
+import LandingPage from './pages/LandingPage/LandingPage';
+
 export default function App() {
-	return (
-		<>
-			<h1>CubeTime</h1>
-		</>
-	);
+    const isAuthenticated = true;
+
+    return (
+        <div className='wrapper'>
+            <Header />
+            {isAuthenticated ? <Home /> : <LandingPage />}
+        </div>
+    );
 }

@@ -1,0 +1,75 @@
+header {
+    position: fixed;
+    top: 1rem;
+    left: calc(50% + 1rem);
+    transform: translateX(calc(-50% - 1rem));
+    height: var(--header-height);
+    width: min(100rem, calc(100% - 2rem));
+    background-color: hsl(from var(--base-color1) h s calc(l + 10));
+    box-shadow: 0 0 1rem hsl(from var(--text-color) h s l / 0.25);
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+}
+
+.header-container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 3rem;
+    aspect-ratio: 1;
+    background-color: blue;
+}
+
+.header-container > nav .menu {
+    list-style-type: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.header-container > nav li svg {
+    stroke: hsl(from var(--base-color2) h s calc(l - 10));
+    margin-bottom: -6px;
+    transition: all 125ms;
+}
+
+.header-container > nav li:hover svg {
+    transform: translateY(-0.25rem);
+}
+
+.header-container > nav button {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font: normal 1rem var(--font-base);
+    color: var(--base-color1);
+    transition: all 250ms ease;
+}
+
+.header-container > nav #signup {
+    background-image: linear-gradient(
+        135deg,
+        hsl(from var(--base-color6) h s l),
+        hsl(from var(--base-color6) h s calc(l - 15))
+    );
+    
+    &:hover {
+        box-shadow: 0 0 1rem hsl(from var(--base-color6) h s l);
+    }
+}
+
+.header-container > nav #signin {
+    border: 2px solid hsl(from var(--base-color6) h s calc(l - 5));
+    background-color: transparent;
+    color: hsl(from var(--base-color6) h s calc(l - 5));
+    
+    &:hover {
+        box-shadow:
+            0 0 1rem hsl(from var(--base-color6) h s l / 0.5),
+            inset 0 0 1rem hsl(from var(--base-color6) h s l / 0.5)
+        ;
+    }
+}
