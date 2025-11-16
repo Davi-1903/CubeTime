@@ -1,7 +1,7 @@
 from argon2 import PasswordHasher
 from argon2.exceptions import VerifyMismatchError
 from flask import Blueprint, jsonify, request
-from flask_login import login_required, login_user
+from flask_login import login_required, login_user, logout_user
 from database import Session
 from models.user import User
 
@@ -60,8 +60,8 @@ def login():
 @auth_bp.route('/logout')
 @login_required
 def logout():
-    logout()
-    return jsonify({'ok': False, 'message': 'O usuário saiu do sistema'}), 200
+    logout_user()
+    return jsonify({'ok': True, 'message': 'O usuário saiu do sistema'}), 200
 
 
 @auth_bp.route('/check')

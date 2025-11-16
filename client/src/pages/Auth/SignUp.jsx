@@ -17,7 +17,7 @@ export default function SignUp() {
     const formRef = useRef(null);
 
     async function handleSubmit(event) {
-        event.preventDefualt();
+        event.preventDefault();
 
         try {
             const response = await fetch('/api/auth/register', {
@@ -29,6 +29,8 @@ export default function SignUp() {
             if (!data.ok) throw new Error(data.message);
 
             setAuthenticated(true);
+            setOpenSignUp(false);
+            document.body.style.overflow = 'auto';
             alert(data.message);
         } catch (err) {
             alert(`Ocorreu um erro. ${err}`);
