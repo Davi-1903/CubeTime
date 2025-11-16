@@ -6,6 +6,8 @@ import './Profile.css';
 
 export default function Profile() {
     const [user, setUser] = useState({ name: '', email: '' });
+    const [formData, setFormData] = useState(null);
+    const [isEditing, setEditing] = useState(false);
     const { setAuthenticated } = useAuthenticated();
     const naviage = useNavigate();
 
@@ -28,7 +30,7 @@ export default function Profile() {
         if (!confirm('Você tem certeza que deseja apagar sua conta?')) return;
 
         try {
-            const response = await fetch('/api/user/delete', { credentials: 'include' });
+            const response = await fetch('/api/user/delete', { method: 'DELETE', credentials: 'include' });
             const data = await response.json();
             if (!data.ok) throw new Error(data.message);
 
@@ -40,20 +42,43 @@ export default function Profile() {
         }
     }
 
-    useEffect(() => {
-        async function fecthUser() {
-            try {
-                const response = await fetch('/api/user/', { credentials: 'include' });
-                const data = await response.json();
-                if (response.status !== 200) throw new Error(data.message);
+    async function handleEditing() {
+        try {
+            const response = await fetch('/api/user/edit', {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+            const data = await response.json();
+            if (!data.ok) throw new Error(data.message);
 
-                console.log(data);
-                setUser(data);
-            } catch (err) {
-                alert(`Ocorreu um erro. ${err}`);
-            }
+            setEditing(false);
+            fecthUser();
+            alert(data.message);
+        } catch (err) {
+            alert(`Ocorreu um erro. ${err}`);
         }
+    }
 
+    function handleIsEditing() {
+        setEditing(!isEditing);
+        setFormData({ ...user });
+    }
+
+    async function fecthUser() {
+        try {
+            const response = await fetch('/api/user/', { credentials: 'include' });
+            const data = await response.json();
+            if (response.status !== 200) throw new Error(data.message);
+
+            console.log(data);
+            setUser(data);
+        } catch (err) {
+            alert(`Ocorreu um erro. ${err}`);
+        }
+    }
+
+    useEffect(() => {
         fecthUser();
     }, []);
 
@@ -64,19 +89,46 @@ export default function Profile() {
                     <div className='foto-perfil'>{user.name[0]?.toUpperCase()}</div>
                     <div className='input-label'>
                         <label htmlFor='name'>Nome</label>
-                        <input type='text' id='name' value={user.name} readOnly />
+                        <input
+                            type='text'
+                            id='name'
+                            value={isEditing ? formData.name : user.name}
+                            onChange={e => setFormData({ ...formData, name: e.target.value })}
+                            readOnly={!isEditing}
+                        />
                     </div>
                     <div className='input-label'>
                         <label htmlFor='email'>Email</label>
-                        <input type='email' id='email' value={user.email} readOnly />
+                        <input
+                            type='email'
+                            id='email'
+                            value={isEditing ? formData.email : user.email}
+                            onChange={e => setFormData({ ...user, email: e.target.value })}
+                            readOnly={!isEditing}
+                        />
                     </div>
-                    <button id='sair' onClick={handleLogout}>
-                        Sair
-                    </button>
-                    <button id='editar'>Editar</button>
-                    <button id='excluir' onClick={handleDelete}>
-                        Excluir
-                    </button>
+                    {isEditing ? (
+                        <>
+                            <button id='save' onClick={handleEditing}>
+                                Save
+                            </button>
+                            <button id='cancel' onClick={handleIsEditing}>
+                                Cancel
+                            </button>
+                        </>
+                    ) : (
+                        <>
+                            <button id='sair' onClick={handleLogout}>
+                                Sair
+                            </button>
+                            <button id='editar' onClick={handleIsEditing}>
+                                Editar
+                            </button>
+                            <button id='excluir' onClick={handleDelete}>
+                                Excluir
+                            </button>
+                        </>
+                    )}
                 </article>
             </div>
         </PrivateRoute>

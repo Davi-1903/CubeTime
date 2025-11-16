@@ -54,9 +54,9 @@
     &#sair { background-color: hsl(from var(--base-color2) h s calc(l - 10)); }
     &#sair:hover { box-shadow: 0 0 1rem hsl(from var(--base-color2) h s l); }
     
-    &#editar { background-color: hsl(from var(--base-color6) h s calc(l - 10)); }
-    &#editar:hover { box-shadow: 0 0 1rem hsl(from var(--base-color6) h s l); }
+    &#editar, &#save { background-color: hsl(from var(--base-color6) h s calc(l - 10)); }
+    &:is(#editar, #save):hover { box-shadow: 0 0 1rem hsl(from var(--base-color6) h s l); }
     
-    &#excluir { background-color: hsl(from var(--base-color5) h s calc(l - 10)); }
-    &#excluir:hover { box-shadow: 0 0 1rem hsl(from var(--base-color5) h s l); }
+    &#excluir, &#cancel { background-color: hsl(from var(--base-color5) h s calc(l - 10)); }
+    &:is(#excluir, #cancel):hover { box-shadow: 0 0 1rem hsl(from var(--base-color5) h s l); }
 }
