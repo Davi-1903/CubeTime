@@ -1,13 +1,39 @@
 import { useEffect, useRef, useState } from 'react';
+import { useAuthenticated } from '../../context/AuthContext';
 import { useOpenSignIn, useOpenSignUp } from '../../context/OpenAuth';
 import './Forms.css';
 
 export default function SignUp() {
     const { setOpenSignUp } = useOpenSignUp();
     const { setOpenSignIn } = useOpenSignIn();
+    const { setAuthenticated } = useAuthenticated();
     const [isClosing, setClosing] = useState(false);
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: '',
+    });
     const containerRef = useRef(null);
     const formRef = useRef(null);
+
+    async function handleSubmit(event) {
+        event.preventDefualt();
+
+        try {
+            const response = await fetch('/api/auth/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+            const data = await response.json();
+            if (!data.ok) throw new Error(data.message);
+
+            setAuthenticated(true);
+            alert(data.message);
+        } catch (err) {
+            alert(`Ocorreu um erro. ${err}`);
+        }
+    }
 
     function handleChangeForm() {
         setOpenSignUp(false);
@@ -33,20 +59,45 @@ export default function SignUp() {
     }, [setOpenSignUp]);
 
     return (
-        <div ref={containerRef} className={`form-container ${isClosing ? 'fade-out' : 'fade-in'}`} onAnimationEnd={handleAnimationEnd}>
-            <form ref={formRef}>
+        <div
+            ref={containerRef}
+            className={`form-container ${isClosing ? 'fade-out' : 'fade-in'}`}
+            onAnimationEnd={handleAnimationEnd}
+        >
+            <form ref={formRef} onSubmit={handleSubmit}>
                 <h2>SignUp</h2>
                 <div className='input-label'>
                     <label htmlFor='nome'>Nome</label>
-                    <input type='text' id='nome' placeholder='Seu nome' required />
+                    <input
+                        type='text'
+                        id='nome'
+                        placeholder='Seu nome'
+                        value={formData.name}
+                        onChange={e => setFormData({ ...formData, name: e.target.value })}
+                        required
+                    />
                 </div>
                 <div className='input-label'>
                     <label htmlFor='email'>Email</label>
-                    <input type='email' id='email' placeholder='exemplo@email.com' required />
+                    <input
+                        type='email'
+                        id='email'
+                        placeholder='exemplo@email.com'
+                        value={formData.email}
+                        onChange={e => setFormData({ ...formData, email: e.target.value })}
+                        required
+                    />
                 </div>
                 <div className='input-label'>
                     <label htmlFor='password'>Senha</label>
-                    <input type='password' id='password' placeholder='Sua senha...' required />
+                    <input
+                        type='password'
+                        id='password'
+                        placeholder='Sua senha...'
+                        value={formData.password}
+                        onChange={e => setFormData({ ...formData, password: e.target.value })}
+                        required
+                    />
                 </div>
                 <button type='submit'>Cadastrar-se</button>
                 <p>

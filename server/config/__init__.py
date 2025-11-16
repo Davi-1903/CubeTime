@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+from flask import jsonify
 from flask_cors import CORS
 from flask_login import LoginManager
 from database import init_database
@@ -26,3 +27,7 @@ def login_config(app):
     @login_manager.user_loader
     def load_user(user_id: int):
         return User.get(user_id)
+    
+    @login_manager.unauthorized_handler
+    def unauthorized(error):
+        return jsonify({'ok': False, 'message': 'Permissão negada'}), 401
