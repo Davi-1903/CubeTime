@@ -1,4 +1,4 @@
-import { IconUser, IconSettings, IconStopwatch } from '@tabler/icons-react';
+import { IconUser, IconStopwatch } from '@tabler/icons-react';
 import { Link } from 'react-router-dom';
 import { useAuthenticated } from '../../context/AuthContext';
 import { useOpenSignIn, useOpenSignUp } from '../../context/OpenAuth';

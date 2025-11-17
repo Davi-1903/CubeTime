@@ -1,5 +1,6 @@
 /* ==================================================== WELCOME ==================================================== */
 .welcome-container {
+    grid-column: span 2;
     position: relative;
     min-height: 100vh;
     display: grid;

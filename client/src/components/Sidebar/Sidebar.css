@@ -1,0 +1,13 @@
+.sidebar-container {
+    grid-area: sidebar;
+    height: calc(100% - 2rem);
+    background-color: hsl(from var(--base-color1) h s calc(l + 10));
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0.5rem 1rem 2rem hsl(from var(--text-color) h s l / 0.125);
+}
