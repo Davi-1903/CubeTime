@@ -43,6 +43,13 @@ export default function Profile() {
     }
 
     async function handleEditing() {
+        const isDiferent = !!(user.name != formData?.name || user.email != formData?.email);
+        if (!isDiferent) {
+            alert('Não há alterações');
+            return;
+        }
+        if (isDiferent && !confirm('Você deseja realizar essas mudanças?')) return;
+
         try {
             const response = await fetch('/api/user/edit', {
                 method: 'PATCH',
@@ -61,6 +68,9 @@ export default function Profile() {
     }
 
     function handleIsEditing() {
+        const isDiferent = !!(user.name != formData?.name || user.email != formData?.email);
+        if (isEditing && isDiferent && !confirm('Deseja descartar as mudanças?')) return;
+
         setEditing(!isEditing);
         setFormData({ ...user });
     }
@@ -71,7 +81,6 @@ export default function Profile() {
             const data = await response.json();
             if (response.status !== 200) throw new Error(data.message);
 
-            console.log(data);
             setUser(data);
         } catch (err) {
             alert(`Ocorreu um erro. ${err}`);
