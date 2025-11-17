@@ -1,13 +1,50 @@
-.sidebar-container {
+.sidebar {
     grid-area: sidebar;
-    height: calc(100% - 2rem);
+}
+
+.sidebar-container {
+    position: sticky;
+    top: 1rem;
+    height: calc(100vh - 2rem);
     background-color: hsl(from var(--base-color1) h s calc(l + 10));
     border-radius: 1rem;
     margin: 1rem;
     padding: 1rem;
+    box-shadow: 0 0 1rem hsl(from var(--text-color) h s l / 0.125);
+}
+
+.sidebar-container .sidebar-content {
+    height: 100%;
     display: flex;
-    gap: 1rem;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0.5rem 1rem 2rem hsl(from var(--text-color) h s l / 0.125);
+    gap: 2rem;
+}
+
+.sidebar-container .sidebar-content > .menu {
+    height: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sidebar-container .sidebar-content > .menu button {
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    transition: all 125ms;
+
+    &:hover {
+        background-color: hsl(from var(--base-color1) h s calc(l - 5));
+    }
+}
+
+.sidebar-container .sidebar-content > .menu button svg {
+    stroke: var(--text-color);
+}
+
+.sidebar-container .sidebar-content > .menu #logout-btn svg {
+    stroke: var(--base-color5);
 }

@@ -47,7 +47,6 @@ def edit_user():
             session.commit()
             return jsonify({'ok': True, 'message': 'Informações alteradas com sucesso'}), 200
         
-        except Exception as e:
-            print(e)
+        except:
             session.rollback()
             return jsonify({'ok': False, 'message': 'Ocorreu um erro interno'}), 500

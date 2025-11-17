@@ -11,21 +11,6 @@ export default function Profile() {
     const { setAuthenticated } = useAuthenticated();
     const naviage = useNavigate();
 
-    async function handleLogout() {
-        if (!confirm('Você realmente deseja sair?')) return;
-
-        try {
-            const response = await fetch('/api/auth/logout', { credentials: 'include' });
-            const data = await response.json();
-            if (!data.ok) throw new Error(data.message);
-
-            setAuthenticated(false);
-            naviage('/');
-        } catch (err) {
-            alert(`Ocorreu um erro. ${err}`);
-        }
-    }
-
     async function handleDelete() {
         if (!confirm('Você tem certeza que deseja apagar sua conta?')) return;
 
@@ -127,9 +112,6 @@ export default function Profile() {
                         </>
                     ) : (
                         <>
-                            <button id='sair' onClick={handleLogout}>
-                                Sair
-                            </button>
                             <button id='editar' onClick={handleIsEditing}>
                                 Editar
                             </button>
