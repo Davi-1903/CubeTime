@@ -1,0 +1,59 @@
+.stopwatcher-container {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.stopwatcher-container #stopwatcher {
+    font: bold 6rem var(--font-base);
+    color: var(--text-color);
+}
+
+.stopwatcher-container > .stopwatcher-content .functions-container {
+    margin-top: 2rem;
+    display: flex;
+    /* justify-content: center; */
+    gap: 2rem;
+}
+
+.stopwatcher-container > .stopwatcher-content .functions-container button {
+    cursor: pointer;
+    flex: 1 1 0;
+    border-radius: 1rem;
+    padding: 1rem 4rem;
+    transition: all 250ms;
+
+    & > svg {
+        stroke: var(--base-color1);
+    }
+}
+
+.stopwatcher-container > .stopwatcher-content .functions-container #start {
+    background-color: hsl(from var(--base-color6) h s calc(l - 5));
+    
+    &:hover {
+        box-shadow: 0 0 1rem var(--base-color6);
+    }
+}
+
+.stopwatcher-container > .stopwatcher-content .functions-container #stop {
+    background-color: hsl(from var(--base-color5) h s calc(l - 5));
+    
+    &:hover {
+        box-shadow: 0 0 1rem var(--base-color5);
+    }
+}
+
+.stopwatcher-container > .stopwatcher-content .functions-container #refresh {
+    background-color: hsl(from var(--base-color2) h s calc(l - 5));
+    
+    &:hover {
+        box-shadow: 0 0 1rem var(--base-color2);
+    }
+    
+    &:disabled {
+        cursor: not-allowed;
+        background-color: hsl(from var(--base-color2) h calc(s - 40) calc(l - 40));
+        box-shadow: none;
+    }
+}

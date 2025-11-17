@@ -5,6 +5,7 @@ import { AuthenticatedProvider } from './context/AuthContext.jsx';
 import { OpenAuthProvider } from './context/OpenAuth.jsx';
 import App from './App.jsx';
 import Profile from './pages/Profile/Profile.jsx';
+import Stopwatcher from './pages/Stopwatcher/Stopwatcher.jsx';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
         element: <App />,
         children: [
             { path: 'perfil', element: <Profile /> },
-            { path: 'cronometro', element: <h1>Cronometro</h1> },
+            { path: 'cronometro', element: <Stopwatcher /> },
         ],
     },
 ]);
