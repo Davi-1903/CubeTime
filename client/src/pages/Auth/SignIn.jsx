@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
+import { IconEye, IconEyeOff, IconUser } from '@tabler/icons-react';
 import { useOpenSignIn, useOpenSignUp } from '../../context/OpenAuth';
-import './Forms.css';
 import { useAuthenticated } from '../../context/AuthContext';
+import './Forms.css';
 
 export default function SignIn() {
     const { setOpenSignIn } = useOpenSignIn();
@@ -12,6 +13,7 @@ export default function SignIn() {
         email: '',
         password: '',
     });
+    const [showPassword, setShowPassword] = useState(false);
     const containerRef = useRef(null);
     const formRef = useRef(null);
 
@@ -48,6 +50,10 @@ export default function SignIn() {
         }
     }
 
+    function toggleShowPassword() {
+        setShowPassword(!showPassword);
+    }
+
     useEffect(() => {
         function handleClick(event) {
             if (!formRef.current?.contains(event.target)) {
@@ -69,25 +75,35 @@ export default function SignIn() {
                 <h2>SignIn</h2>
                 <div className='input-label'>
                     <label htmlFor='email'>Email</label>
-                    <input
-                        type='email'
-                        id='email'
-                        placeholder='exemplo@email.com'
-                        value={formData.email}
-                        onChange={e => setFormData({ ...formData, email: e.target.value })}
-                        required
-                    />
+                    <div className='input-content'>
+                        <input
+                            type='email'
+                            id='email'
+                            placeholder='exemplo@email.com'
+                            value={formData.email}
+                            onChange={e => setFormData({ ...formData, email: e.target.value })}
+                            required
+                        />
+                        <label htmlFor='email' className='icon-container'>
+                            <IconUser />
+                        </label>
+                    </div>
                 </div>
                 <div className='input-label'>
                     <label htmlFor='password'>Senha</label>
-                    <input
-                        type='password'
-                        id='password'
-                        placeholder='Sua senha...'
-                        value={formData.password}
-                        onChange={e => setFormData({ ...formData, password: e.target.value })}
-                        required
-                    />
+                    <div className='input-content'>
+                        <input
+                            type={showPassword ? 'text' : 'password'}
+                            id='password'
+                            placeholder='Sua senha...'
+                            value={formData.password}
+                            onChange={e => setFormData({ ...formData, password: e.target.value })}
+                            required
+                        />
+                        <button type='button' className='icon-container' onClick={toggleShowPassword}>
+                            {showPassword ? <IconEye size={26} /> : <IconEyeOff size={26} />}
+                        </button>
+                    </div>
                 </div>
                 <button type='submit'>Entrar</button>
                 <p>
