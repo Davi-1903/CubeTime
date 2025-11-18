@@ -29,5 +29,5 @@ def login_config(app):
         return User.get(user_id)
     
     @login_manager.unauthorized_handler
-    def unauthorized(error):
+    def unauthorized():
         return jsonify({'ok': False, 'message': 'Permissão negada'}), 401
