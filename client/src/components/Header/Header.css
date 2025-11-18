@@ -30,6 +30,25 @@ header {
     gap: 2rem;
 }
 
+.header-container > .menu-btn {
+    z-index: 1;
+    cursor: pointer;
+    display: none;
+    padding: .5rem;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    transition: all 125ms;
+
+    &:hover {
+        background-color: hsl(from var(--base-color1) h s calc(l - 5));
+    }
+}
+
+.header-container > .menu-btn svg {
+    margin-bottom: -6px;
+    stroke: var(--text-color);
+}
+
 .header-container > nav li svg {
     stroke: hsl(from var(--text-color) h s l);
     margin-bottom: -6px;
@@ -71,5 +90,54 @@ header {
             0 0 1rem hsl(from var(--base-color6) h s l / 0.5),
             inset 0 0 1rem hsl(from var(--base-color6) h s l / 0.5)
         ;
+    }
+}
+
+@media screen and (width <= 450px) {
+    .header-container > nav {
+        position: fixed;
+        opacity: 0;
+        height: 100vh;
+        inset: -1rem;
+        pointer-events: none;
+        background-color: hsl(from var(--text-color) h s l / 0.1);
+        backdrop-filter: blur(2rem);
+
+        &.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+
+    .header-container > nav .menu {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .header-container > nav button {
+        font-size: 3.6em;
+        padding: 2rem;
+        border-radius: 2rem;
+
+        &:hover {
+            box-shadow: 0 0 1rem hsl(from var(--base-color6) h s l);
+        }
+    }
+
+    .header-container > nav button#signin {
+        border: none;
+        background-image: linear-gradient(
+            135deg,
+            hsl(from var(--base-color6) h s l),
+            hsl(from var(--base-color6) h s calc(l - 15))
+        );
+        color: var(--base-color1);
+    }
+
+    .header-container > .menu-btn {
+        display: inline;
     }
 }

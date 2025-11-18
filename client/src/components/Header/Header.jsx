@@ -1,24 +1,39 @@
-import { IconUser, IconStopwatch } from '@tabler/icons-react';
+import { useEffect, useState } from 'react';
+import { IconMenu2, IconX } from '@tabler/icons-react';
 import { Link } from 'react-router-dom';
-import { useAuthenticated } from '../../context/AuthContext';
 import { useOpenSignIn, useOpenSignUp } from '../../context/OpenAuth';
 import Logo from '/assets/images/logo.svg';
 import './Header.css';
 
 export default function Header() {
-    const { isAuthenticated } = useAuthenticated();
     const { setOpenSignIn } = useOpenSignIn();
     const { setOpenSignUp } = useOpenSignUp();
+    const [isOpenSidebar, setOpenSidebar] = useState(false);
 
     function handleOpenSignIn() {
+        setOpenSidebar(false);
         setOpenSignIn(true);
         document.body.style.overflow = 'hidden';
     }
 
     function handleOpenSignUp() {
+        setOpenSidebar(false);
         setOpenSignUp(true);
         document.body.style.overflow = 'hidden';
     }
+
+    function toggleSidebar() {
+        setOpenSidebar(!isOpenSidebar);
+    }
+
+    useEffect(() => {
+        function handleResize() {
+            setOpenSidebar(false);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
         <header>
@@ -26,37 +41,23 @@ export default function Header() {
                 <Link to='/'>
                     <img src={Logo} alt='Logo' className='logo' />
                 </Link>
-                <nav>
+                <nav className={isOpenSidebar ? 'open' : ''}>
                     <ul className='menu'>
-                        {isAuthenticated ? (
-                            <>
-                                <li>
-                                    <Link to='/cronometro'>
-                                        <IconStopwatch size={32} />
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to='/perfil'>
-                                        <IconUser size={32} />
-                                    </Link>
-                                </li>
-                            </>
-                        ) : (
-                            <>
-                                <li>
-                                    <button id='signin' onClick={handleOpenSignIn}>
-                                        SignIn
-                                    </button>
-                                </li>
-                                <li>
-                                    <button id='signup' onClick={handleOpenSignUp}>
-                                        SignUp
-                                    </button>
-                                </li>
-                            </>
-                        )}
+                        <li>
+                            <button id='signin' onClick={handleOpenSignIn}>
+                                SignIn
+                            </button>
+                        </li>
+                        <li>
+                            <button id='signup' onClick={handleOpenSignUp}>
+                                SignUp
+                            </button>
+                        </li>
                     </ul>
                 </nav>
+                <button className='menu-btn' onClick={toggleSidebar}>
+                    {isOpenSidebar ? <IconX size={32} /> : <IconMenu2 size={32} />}
+                </button>
             </div>
         </header>
     );

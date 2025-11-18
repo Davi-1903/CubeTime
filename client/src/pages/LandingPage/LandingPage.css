@@ -15,7 +15,7 @@
 }
 
 .welcome-container .text-container>h1 {
-    font: bold 6rem var(--font-base);
+    font: bold 6em var(--font-base);
     color: transparent;
     background-clip: text;
     background-image: linear-gradient(to right,
@@ -27,7 +27,7 @@
 
 .welcome-container .text-container>p {
     text-align: center;
-    font: normal 1.6rem var(--font-secundary);
+    font: normal 2em var(--font-secundary);
     color: var(--text-color);
 }
 
@@ -35,5 +35,23 @@
     to {
         transform: none;
         opacity: 1;
+    }
+}
+
+@media screen and (width <= 1050px) {
+    .welcome-container .text-container {
+        font-size: 0.5rem;
+        word-break: keep-all;
+    }
+}
+
+@media screen and (width <= 400px) {
+    .welcome-container .text-container > h1 {
+        font-size: 1.5rem;
+        margin-bottom: none;
+    }
+
+    .welcome-container .text-container > p {
+        display: none;
     }
 }

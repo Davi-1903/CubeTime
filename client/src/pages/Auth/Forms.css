@@ -22,7 +22,7 @@
     background-color: var(--base-color1);
     border-radius: 1rem;
     padding: 2rem;
-    width: 24rem;
+    width: clamp(20rem, 80%, 24rem);
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -78,7 +78,7 @@
 }
 
 .form-container form button[type='submit'] {
-    aspect-ratio: 20 / 3;
+    min-height: 3rem;
     border-radius: .5rem;
     font: normal 1.2rem var(--font-base);
     background-color: var(--text-color);
