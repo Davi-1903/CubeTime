@@ -1,11 +1,13 @@
 import { IconUser, IconStopwatch, IconLogout, IconDashboard } from '@tabler/icons-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthenticated } from '../../context/AuthContext';
+import { useMessages } from '../../context/MessagesContext';
 import './Sidebar.css';
 
 export default function Sidebar() {
     const { setAuthenticated } = useAuthenticated();
-    const navigate =  useNavigate();
+    const { setMessagesList } = useMessages();
+    const navigate = useNavigate();
 
     async function handleLogout() {
         if (!confirm('Você realmente deseja sair?')) return;
@@ -18,7 +20,7 @@ export default function Sidebar() {
             setAuthenticated(false);
             navigate('/');
         } catch (err) {
-            alert(`Ocorreu um erro. ${err}`);
+            setMessagesList(prev => [...prev, { id: prev.length + 1, type: 'danger', message: err.message }]);
         }
     }
 

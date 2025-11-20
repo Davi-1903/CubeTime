@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthenticated } from '../../context/AuthContext';
+import { useMessages } from '../../context/MessagesContext';
 import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
 import './Profile.css';
 
@@ -9,6 +10,7 @@ export default function Profile() {
     const [formData, setFormData] = useState(null);
     const [isEditing, setEditing] = useState(false);
     const { setAuthenticated } = useAuthenticated();
+    const { setMessagesList } = useMessages();
     const naviage = useNavigate();
 
     async function handleDelete() {
@@ -21,16 +23,16 @@ export default function Profile() {
 
             setAuthenticated(false);
             naviage('/');
-            alert(data.message);
+            setMessagesList(prev => [...prev, { id: prev.length + 1, type: 'ok', message: data.message }]);
         } catch (err) {
-            alert(`Ocorreu um erro. ${err}`);
+            setMessagesList(prev => [...prev, { id: prev.length + 1, type: 'ok', message: err.message }]);
         }
     }
 
     async function handleEditing() {
         const isDiferent = !!(user.name != formData?.name || user.email != formData?.email);
         if (!isDiferent) {
-            alert('Não há alterações');
+            setMessagesList(prev => [...prev, { id: prev.length + 1, type: 'danger', message: 'Não há alterações' }]);
             return;
         }
         if (isDiferent && !confirm('Você deseja realizar essas mudanças?')) return;
@@ -45,10 +47,10 @@ export default function Profile() {
             if (!data.ok) throw new Error(data.message);
 
             setEditing(false);
-            fecthUser();
-            alert(data.message);
+            fetchUser();
+            setMessagesList(prev => [...prev, { id: prev.length + 1, type: 'danger', message: data.message }]);
         } catch (err) {
-            alert(`Ocorreu um erro. ${err}`);
+            setMessagesList(prev => [...prev, { id: prev.length + 1, type: 'danger', message: err.message }]);
         }
     }
 
@@ -60,7 +62,7 @@ export default function Profile() {
         setFormData({ ...user });
     }
 
-    async function fecthUser() {
+    const fetchUser = useCallback(async () => {
         try {
             const response = await fetch('/api/user/', { credentials: 'include' });
             const data = await response.json();
@@ -68,13 +70,13 @@ export default function Profile() {
 
             setUser(data);
         } catch (err) {
-            alert(`Ocorreu um erro. ${err}`);
+            setMessagesList(prev => [...prev, { id: prev.length + 1, type: 'danger', message: err.message }]);
         }
-    }
+    }, [setMessagesList]);
 
     useEffect(() => {
-        fecthUser();
-    }, []);
+        fetchUser();
+    }, [fetchUser]);
 
     return (
         <PrivateRoute>

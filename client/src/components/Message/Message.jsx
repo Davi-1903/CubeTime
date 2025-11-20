@@ -12,7 +12,10 @@ export default function Message({ id, type, message }) {
     }
 
     function handleAnimationEnd(id) {
-        if (isLeaving) deleteMessage(id);
+        if (isLeaving) {
+            deleteMessage(id);
+            setLeaving(false);
+        }
     }
 
     return (
@@ -30,7 +33,7 @@ export default function Message({ id, type, message }) {
                 </button>
             </div>
             <div className='progress-bar'>
-                <div className='progress-value'></div>
+                <div className='progress-value' onAnimationEnd={() => setLeaving(true)}></div>
             </div>
         </div>
     );

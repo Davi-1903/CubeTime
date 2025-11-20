@@ -14,7 +14,7 @@ export default function App() {
             <div className='messages-container'>
                 {messagesList.map((message, idx) => {
                     const newMessage = { ...message, idx: idx };
-                    return <Message {...newMessage} />;
+                    return <Message key={message.id} {...newMessage} />;
                 })}
             </div>
             {isAuthenticated ? <Home /> : <LandingPage />}

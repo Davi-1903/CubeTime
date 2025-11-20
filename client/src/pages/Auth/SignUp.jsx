@@ -2,12 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import { IconEye, IconEyeOff, IconMail, IconUser } from '@tabler/icons-react';
 import { useAuthenticated } from '../../context/AuthContext';
 import { useOpenSignIn, useOpenSignUp } from '../../context/OpenAuth';
+import { useMessages } from '../../context/MessagesContext';
 import './Forms.css';
 
 export default function SignUp() {
     const { setOpenSignUp } = useOpenSignUp();
     const { setOpenSignIn } = useOpenSignIn();
     const { setAuthenticated } = useAuthenticated();
+    const { setMessagesList } = useMessages();
     const [isClosing, setClosing] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
@@ -33,9 +35,9 @@ export default function SignUp() {
             setAuthenticated(true);
             setOpenSignUp(false);
             document.body.style.overflow = 'auto';
-            alert(data.message);
+            setMessagesList(prev => [...prev, { id: prev.length + 1, type: 'ok', message: data.message }]);
         } catch (err) {
-            alert(`Ocorreu um erro. ${err}`);
+            setMessagesList(prev => [...prev, { id: prev.length + 1, type: 'danger', message: err.message }]);
         }
     }
 
@@ -73,7 +75,7 @@ export default function SignUp() {
         return () => {
             document.removeEventListener('mousedown', handleClick);
             document.removeEventListener('keydown', handleKeydown);
-        }
+        };
     }, [setOpenSignUp]);
 
     return (
