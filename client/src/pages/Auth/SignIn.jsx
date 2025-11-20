@@ -61,8 +61,18 @@ export default function SignIn() {
             }
         }
 
+        function handleKeydown(event) {
+            if (event.key == 'Escape') {
+                setClosing(true);
+            }
+        }
+
         document.addEventListener('mousedown', handleClick);
-        return () => document.removeEventListener('mousedown', handleClick);
+        document.addEventListener('keydown', handleKeydown);
+        return () => {
+            document.removeEventListener('mousedown', handleClick);
+            document.removeEventListener('keydown', handleKeydown);
+        }
     }, [setOpenSignIn]);
 
     return (
