@@ -34,7 +34,7 @@
     min-height: 100vh;
     background-color: var(--base-color1);
     display: grid;
-    grid-template: auto auto / 8rem auto;
+    grid-template: auto auto / 6rem auto;
     grid-template-areas: 
         "sidebar main"
         "footer footer"

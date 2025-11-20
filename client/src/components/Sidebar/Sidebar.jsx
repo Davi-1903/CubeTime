@@ -31,27 +31,27 @@ export default function Sidebar() {
                         <li>
                             <Link to='/'>
                                 <button>
-                                    <IconDashboard size={32} />
+                                    <IconDashboard size={24} />
                                 </button>
                             </Link>
                         </li>
                         <li>
                             <Link to='/cronometro'>
                                 <button>
-                                    <IconStopwatch size={32} />
+                                    <IconStopwatch size={24} />
                                 </button>
                             </Link>
                         </li>
                         <li>
                             <Link to='/perfil'>
                                 <button>
-                                    <IconUser size={32} />
+                                    <IconUser size={24} />
                                 </button>
                             </Link>
                         </li>
                         <li>
                             <button id='logout-btn' onClick={handleLogout}>
-                                <IconLogout size={32} />
+                                <IconLogout size={24} />
                             </button>
                         </li>
                     </ul>

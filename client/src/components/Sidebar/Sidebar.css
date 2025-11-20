@@ -18,7 +18,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
+}
+
+.sidebar-container .sidebar-content > .logo {
+    width: 100%;
 }
 
 .sidebar-container .sidebar-content > .menu {
@@ -43,6 +47,7 @@
 
 .sidebar-container .sidebar-content > .menu button svg {
     stroke: var(--text-color);
+    margin-bottom: -0.4px;
 }
 
 .sidebar-container .sidebar-content > .menu #logout-btn svg {

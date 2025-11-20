@@ -12,7 +12,6 @@
 .stopwatcher-container > .stopwatcher-content .functions-container {
     margin-top: 2rem;
     display: flex;
-    /* justify-content: center; */
     gap: 2rem;
 }
 
@@ -30,6 +29,10 @@
 
 .stopwatcher-container > .stopwatcher-content .functions-container #start {
     background-color: hsl(from var(--base-color6) h s calc(l - 5));
+
+    & > svg {
+        fill: var(--base-color1)
+    }
     
     &:hover {
         box-shadow: 0 0 1rem var(--base-color6);
@@ -38,6 +41,10 @@
 
 .stopwatcher-container > .stopwatcher-content .functions-container #stop {
     background-color: hsl(from var(--base-color5) h s calc(l - 5));
+    
+    & > svg {
+        fill: var(--base-color1)
+    }
     
     &:hover {
         box-shadow: 0 0 1rem var(--base-color5);

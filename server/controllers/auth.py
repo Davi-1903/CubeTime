@@ -45,7 +45,7 @@ def login():
             if user is None:
                 return jsonify({'ok': False, 'message': 'Este email não está cadastrado'}), 401
             
-            # Verifica a senha. Caso haja um erro, será lançado um erro (VerifyMismatchError)
+            # Verifica a senha. Caso haja um erro, será lançado um VerifyMismatchError
             ph.verify(user.password, data['password']) # type: ignore
 
             login_user(user)

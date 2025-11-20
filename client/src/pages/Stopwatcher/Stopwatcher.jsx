@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { IconPlayerPause, IconPlayerPlay, IconRefresh } from '@tabler/icons-react';
+import { IconPlayerPauseFilled, IconPlayerPlayFilled, IconRefresh } from '@tabler/icons-react';
 import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
 import './Stopwatcher.css';
 
@@ -59,11 +59,11 @@ export default function Stopwatcher() {
                     <div className='functions-container'>
                         {isStart ? (
                             <button id='stop' onClick={handleStop}>
-                                <IconPlayerPause size={36} />
+                                <IconPlayerPauseFilled size={36} />
                             </button>
                         ) : (
                             <button id='start' onClick={handleStart}>
-                                <IconPlayerPlay size={36} />
+                                <IconPlayerPlayFilled size={36} />
                             </button>
                         )}
                         <button id='refresh' onClick={handleRefresh} disabled={isStart}>
