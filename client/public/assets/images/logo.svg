@@ -5,193 +5,130 @@
    height="200"
    viewBox="-0.9 -0.9 1.8 1.8"
    id="svg30"
-   sodipodi:docname="Scramble.svg"
-   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
      id="defs30" />
-  <sodipodi:namedview
-     id="namedview30"
-     pagecolor="#505050"
-     bordercolor="#eeeeee"
-     borderopacity="1"
-     inkscape:showpageshadow="0"
-     inkscape:pageopacity="0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#505050"
-     inkscape:zoom="4.165"
-     inkscape:cx="100"
-     inkscape:cy="100"
-     inkscape:window-width="1920"
-     inkscape:window-height="1051"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="g30" />
   <g
-     style="opacity:1;stroke-opacity:0.5;stroke-width:0;stroke-linejoin:round"
+     style="opacity:1;stroke-width:0;stroke-linejoin:round;stroke-opacity:0.5"
      id="g30">
-    <polygon
-       fill="#0000F2"
-       stroke="#000000"
-       points="-4.94395492722E-17,-0.747570645647 0.195987546512,-0.662774614696 -1.69795801266E-17,-0.571237209618 -0.195987546512,-0.662774614696"
-       id="polygon4"
-       style="fill:#fefe00;fill-opacity:1" />
-    <polygon
-       fill="#00D800"
-       stroke="#000000"
-       points="0.232005309244,-0.646547084507 0.443574072948,-0.555009679429 0.248231527177,-0.455893701578 0.0360177627316,-0.555009679429"
-       id="polygon5"
-       style="fill:#fefe00;fill-opacity:1" />
-    <polygon
-       fill="#FFFFFF"
-       stroke="#000000"
-       points="0.482583855536,-0.537431994052 0.711668838657,-0.4383160162 0.517783415392,-0.330639653666 0.287241309765,-0.4383160162"
-       id="polygon6"
-       style="fill:#fefe00;fill-opacity:1" />
-    <polygon
-       fill="#FFA100"
-       stroke="#000000"
-       points="-0.232005309244,-0.646547084507 -0.0360177627316,-0.555009679429 -0.248231527177,-0.455893701578 -0.443574072948,-0.555009679429"
-       id="polygon7"
-       style="fill:#fefe00;fill-opacity:1" />
-    <polygon
-       fill="#FEFE00"
-       stroke="#000000"
-       points="-1.19067117689E-17,-0.537431994052 0.212213764446,-0.4383160162 1.31258271398E-17,-0.330639653666 -0.212213764446,-0.4383160162"
-       id="polygon8"
-       style="fill:#fefe00;fill-opacity:1" />
-    <polygon
-       fill="#FFFFFF"
-       stroke="#000000"
-       points="0.251353447717,-0.419212035245 0.481895553344,-0.311535672712 0.270508995897,-0.19413986641 0.039139683271,-0.311535672712"
-       id="polygon9"
-       style="fill:#fefe00;fill-opacity:1" />
-    <polygon
-       fill="#FFFFFF"
-       stroke="#000000"
-       points="-0.482583855536,-0.537431994052 -0.287241309765,-0.4383160162 -0.517783415392,-0.330639653666 -0.711668838657,-0.4383160162"
-       id="polygon10"
-       style="fill:#fefe00;fill-opacity:1" />
-    <polygon
-       fill="#EE0000"
-       stroke="#000000"
-       points="-0.251353447717,-0.419212035245 -0.039139683271,-0.311535672712 -0.270508995897,-0.19413986641 -0.481895553344,-0.311535672712"
-       id="polygon11"
-       style="fill:#fefe00;fill-opacity:1" />
-    <polygon
-       fill="#FFA100"
-       stroke="#000000"
-       points="1.92197429271E-17,-0.290697160276 0.231369312626,-0.173301353974 6.32515829415E-17,-0.0448079088972 -0.231369312626,-0.173301353974"
-       id="polygon12"
-       style="fill:#fefe00;fill-opacity:1" />
-    <polygon
-       fill="#00D800"
-       stroke="#000000"
-       points="0.0195723118985,-0.0109626610455 0.250941624524,-0.139456106122 0.241391846748,0.126727563228 0.0195723118985,0.261716201016"
-       id="polygon13"
-       style="fill:#00d800;fill-opacity:1" />
-    <polygon
-       fill="#0000F2"
-       stroke="#000000"
-       points="0.289305344891,-0.161716522847 0.500691902338,-0.279112329149 0.48317508531,-0.0193241313 0.279755567114,0.104467146503"
-       id="polygon14" />
-    <polygon
-       fill="#EE0000"
-       stroke="#000000"
-       points="0.535862871621,-0.299523577255 0.729748294886,-0.407199939789 0.705563815696,-0.153667051647 0.518346054594,-0.0397353794067"
-       id="polygon15"
-       style="fill:#0000f2;fill-opacity:1" />
-    <polygon
-       fill="#FEFE00"
-       stroke="#000000"
-       points="0.0187964861684,0.30740091162 0.240616021018,0.172412273832 0.23182332941,0.417493465286 0.0187964861684,0.557525119942"
-       id="polygon16"
-       style="fill:#ee0000;fill-opacity:1" />
-    <polygon
-       fill="#EE0000"
-       stroke="#000000"
-       points="0.277484981547,0.149131684797 0.480904499743,0.0253404069942 0.464720974424,0.265354838312 0.26869228994,0.394212876251"
-       id="polygon17"
-       style="fill:#ee0000;fill-opacity:1" />
-    <polygon
-       fill="#EE0000"
-       stroke="#000000"
-       points="0.514822720476,0.00392025149203 0.702040481578,-0.110011420748 0.679626178607,0.124964198255 0.498639195158,0.24393468281"
-       id="polygon18"
-       style="fill:#ee0000;fill-opacity:1" />
-    <polygon
-       fill="#EE0000"
-       stroke="#000000"
-       points="0.0180798211904,0.599570709585 0.231106664432,0.459539054929 0.222984461349,0.685931529237 0.0180798211904,0.829827540014"
-       id="polygon19"
-       style="fill:#ee0000;fill-opacity:1" />
-    <polygon
-       fill="#FEFE00"
-       stroke="#000000"
-       points="0.266593210281,0.435462585597 0.462621894766,0.306604547658 0.447625016912,0.529020062126 0.258471007198,0.661855059905"
-       id="polygon20"
-       style="fill:#ee0000;fill-opacity:1" />
-    <polygon
-       fill="#FFA100"
-       stroke="#000000"
-       points="0.495373153236,0.284381590748 0.676360136685,0.165411106194 0.655528520228,0.383794964844 0.480376275383,0.506797105216"
-       id="polygon21"
-       style="fill:#ee0000;fill-opacity:1" />
-    <polygon
-       fill="#EE0000"
-       stroke="#000000"
-       points="-0.730336618018,-0.406648000697 -0.536451194753,-0.298971638163 -0.518934377726,-0.0391834403149 -0.706152138828,-0.153115112555"
-       id="polygon22"
-       style="fill:#0000f2;fill-opacity:1" />
-    <polygon
-       fill="#FFFFFF"
-       stroke="#000000"
-       points="-0.501394876389,-0.27854802284 -0.290008318942,-0.161152216538 -0.280458541166,0.105031452812 -0.483878059362,-0.0187598249911"
-       id="polygon23"
-       style="fill:#ee0000;fill-opacity:1" />
-    <polygon
-       fill="#FEFE00"
-       stroke="#000000"
-       points="-0.251784251975,-0.138883000883 -0.0204149393493,-0.0103895558063 -0.0204149393493,0.262289306255 -0.242234474199,0.127300668467"
-       id="polygon24"
-       style="fill:#ee0000;fill-opacity:1" />
-    <polygon
-       fill="#0000F2"
-       stroke="#000000"
-       points="-0.702590256077,-0.109566819661 -0.515372494975,0.0043648525786 -0.499188969657,0.244379283896 -0.680175953105,0.125408799342"
-       id="polygon25" />
-    <polygon
-       fill="#0000F2"
-       stroke="#000000"
-       points="-0.481556632129,0.025787474065 -0.278137113933,0.149578751868 -0.269344422326,0.394659943322 -0.465373106811,0.265801905383"
-       id="polygon26" />
-    <polygon
-       fill="#FFA100"
-       stroke="#000000"
-       points="-0.241391846748,0.172857245909 -0.0195723118985,0.307845883697 -0.0195723118985,0.557970092018 -0.23259915514,0.417938437362"
-       id="polygon27"
-       style="fill:#0000f2;fill-opacity:1" />
-    <polygon
-       fill="#00D800"
-       stroke="#000000"
-       points="-0.676874966562,0.165766840531 -0.495887983113,0.284737325085 -0.480891105259,0.507152839553 -0.656043350105,0.384150699181"
-       id="polygon28"
-       style="fill:#0000f2;fill-opacity:1" />
-    <polygon
-       fill="#EE0000"
-       stroke="#000000"
-       points="-0.463228483716,0.306955455879 -0.267199799232,0.435813493818 -0.259077596148,0.662205968126 -0.448231605863,0.529370970347"
-       id="polygon29"
-       style="fill:#0000f2;fill-opacity:1" />
-    <polygon
-       fill="#FEFE00"
-       stroke="#000000"
-       points="-0.23182332941,0.459880027528 -0.0187964861684,0.599911682184 -0.0187964861684,0.830168512613 -0.223701126327,0.686272501836"
-       id="polygon30"
-       style="fill:#0000f2;fill-opacity:1" />
+    <g
+       id="g54">
+      <path
+         id="path3"
+         style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#000000;fill-opacity:1;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="m 0,-0.79686914 -0.30663281,0.13280273 0.001635,7.5586e-4 -0.24382617,0.10471289 4.9219e-4,2.461e-4 -0.20257031,0.0881894 -0.0293027,0.0127441 0.003305,0.0339961 0.0222715,0.22886719 -0.00123,-7.5586e-4 0.0261211,0.27196875 -7.3828e-4,-4.9218e-4 0.0312539,0.3320332 0.20696485,0.14547656 7.031e-5,0.00102 0.28125,0.19726172 -5.273e-5,-0.001406 0.18363867,0.12854883 0.02633203,0.0184219 0.02640234,-0.0185273 0.18560742,-0.13028906 -5.273e-5,0.001301 0.21888281,-0.15459961 -1.4062e-4,0.00225 0.26954297,-0.18945703 0.0312539,-0.3320332 -7.3828e-4,4.9218e-4 0.0261211,-0.27196875 -0.00123,7.5586e-4 0.0222715,-0.22886719 0.003305,-0.0339961 -0.0294258,-0.0127969 -0.20244727,-0.0881367 4.9219e-4,-2.461e-4 -0.24382617,-0.10471289 0.001635,-7.5586e-4 z m 0,0.0976465 0.08593945,0.0390586 L 0,-0.62108789 -0.08593945,-0.66016406 Z m -0.23436914,0.10156641 0.091793,0.0429609 -0.10546875,0.048832 -0.0898418,-0.0468633 z m 0.46873828,0 0.10351758,0.0449297 -0.0898418,0.0468633 -0.10546875,-0.048832 z m -0.71875195,0.10937109 0.0957129,0.048832 -0.12694922,0.0585879 -0.0937617,-0.0527344 z m 0.96876562,0 0.12499805,0.0546855 -0.0937617,0.0527344 -0.12694922,-0.0585879 z M 0,-0.48633398 0.10937109,-0.43750195 0,-0.38086523 -0.10937109,-0.43750195 Z m -0.25194727,0.11719335 0.11522461,0.0585879 -0.13280273,0.0664101 -0.11524219,-0.064459 z m 0.50389454,0 0.13282031,0.0605391 -0.11524219,0.064459 -0.13280273,-0.0664101 z m -0.92968946,0.0429609 0.0976641,0.0547031 0.009773,0.14842968 -0.0937617,-0.0566367 z m 1.35548438,0 -0.015627,0.1464961 -0.0937617,0.0566367 0.009773,-0.14842968 z M 0,-0.24024023 0.13477148,-0.17187891 0,-0.09569531 -0.13477148,-0.17187891 Z m -0.45117773,0.0410273 0.11719335,0.0644414 0.005854,0.15820312 -0.11327344,-0.06836133 z m 0.90040429,0 -0.009773,0.1542832 -0.11132226,0.06836133 0.005854,-0.15820312 z m -0.65235937,0.13867383 0.13867383,0.07616601 V 0.1835859 L -0.19726172,0.1015664 Z m 0.40626562,0 -0.005871,0.16210547 -0.13280274,0.0800684 V 0.01562695 Z m 0.44530664,0.03515625 -0.0117246,0.12499804 -0.0878906,0.05858789 0.009773,-0.12694921 z m -1.2968789,0.0019512 0.0898418,0.05468555 0.007822,0.12499804 -0.0859395,-0.05663672 z m 0.21679101,0.13280273 0.10938867,0.0664102 0.003902,0.13282031 -0.10351758,-0.0683613 z m 0.86132813,0 -0.007805,0.13086914 -0.10546875,0.0683613 0.005854,-0.13282031 z m -1.05271875,0.14452735 0.0839707,0.0566543 0.007822,0.10546875 -0.0820371,-0.0566543 z m 0.81444726,0 -0.003902,0.13867383 -0.12304688,0.0800859 v -0.140625 z m 0.43163086,0 -0.009756,0.10546875 -0.0820371,0.0566543 0.007822,-0.10741992 z m -0.81639844,0.001969 0.1289004,0.0781172 V 0.4726582 L -0.18750586,0.3925723 Z m -0.21874218,0.13865625 0.10154883,0.0664101 0.00392,0.11133985 -0.0976641,-0.0664102 z m 0.82420312,0 -0.007805,0.10938867 -0.0976641,0.0683613 0.005871,-0.11329102 z m -0.5956875,0.15039844 0.11912696,0.0800859 V 0.7421838 L -0.17968359,0.6621154 Z m 0.36717188,0 -0.003902,0.11719335 -0.11717578,0.0820195 V 0.62303906 Z" />
+    </g>
+    <g
+       id="g55">
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#0000f2;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="m -0.46322848,0.30695546 0.19602868,0.12885803 0.008122,0.22639248 -0.18915401,-0.132835 z"
+         id="path4" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#0000f2;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="m -0.23182333,0.45988003 0.21302684,0.14003165 V 0.83016851 L -0.22370113,0.6862725 Z"
+         id="path2" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#ee0000;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="M 0.01879649,0.30740091 0.24061602,0.17241227 0.23182333,0.41749347 0.01879649,0.55752512 Z"
+         id="path30" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#ee0000;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="M 0.27748498,0.14913168 0.4809045,0.02534041 0.46472097,0.26535484 0.26869229,0.39421288 Z"
+         id="path28" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#ee0000;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="M 0.51482272,0.00392025 0.70204048,-0.11001142 0.67962618,0.1249642 0.4986392,0.24393468 Z"
+         id="path26" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#ee0000;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="M 0.01807982,0.59957071 0.23110666,0.45953905 0.22298446,0.68593153 0.01807982,0.82982754 Z"
+         id="path24" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#ee0000;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="M 0.26659321,0.43546259 0.46262189,0.30660455 0.44762502,0.52902006 0.25847101,0.66185506 Z"
+         id="path22" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#ee0000;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="M 0.49537315,0.28438159 0.67636014,0.16541111 0.65552852,0.38379496 0.48037628,0.50679711 Z"
+         id="path20" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#0000f2;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="m -0.73033662,-0.406648 0.19388543,0.10767636 0.0175168,0.2597882 -0.18721776,-0.11393167 z"
+         id="path18" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#ee0000;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="m -0.50139488,-0.27854802 0.21138656,0.1173958 0.00955,0.26618367 -0.20341952,-0.12379127 z"
+         id="path16" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#ee0000;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="m -0.25178425,-0.138883 0.23136931,0.12849344 V 0.26228931 L -0.24223447,0.12730067 Z"
+         id="path14" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#0000f2;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="m -0.70259026,-0.10956682 0.18721777,0.11393167 0.0161835,0.24001443 -0.18098698,-0.11897048 z"
+         id="path12" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#0000f2;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="m -0.48155663,0.02578747 0.20341952,0.12379128 0.008793,0.24508119 -0.19602869,-0.12885803 z"
+         id="path10" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#0000f2;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="m -0.24139185,0.17285725 0.22181954,0.13498863 V 0.55797009 L -0.23259916,0.41793844 Z"
+         id="path8" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#0000f2;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="m -0.67687497,0.16576684 0.18098699,0.11897049 0.0149969,0.22241551 -0.17515224,-0.12300214 z"
+         id="path6" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#0000f2;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="m 0.53586287,-0.29952358 0.19388542,-0.10767636 -0.0241845,0.25353289 -0.18721777,0.11393167 z"
+         id="path32" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#0000f2;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="M 0.28930534,-0.16171652 0.5006919,-0.27911233 0.48317509,-0.01932413 0.27975557,0.10446715 Z"
+         id="path34" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#00d800;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="M 0.01957231,-0.01096266 0.25094162,-0.13945611 0.24139185,0.12672756 0.01957231,0.2617162 Z"
+         id="path36" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#fefe00;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="M 0,-0.29069716 0.23136931,-0.17330135 0,-0.04480791 -0.23136931,-0.17330135 Z"
+         id="path38" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#fefe00;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="m -0.25135345,-0.41921204 0.21221377,0.10767637 -0.23136932,0.1173958 -0.21138655,-0.1173958 z"
+         id="path40" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#fefe00;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="m -0.48258386,-0.53743199 0.19534255,0.099116 -0.23054211,0.10767637 -0.19388542,-0.10767637 z"
+         id="path42" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#fefe00;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="m 0.25135345,-0.41921204 0.2305421,0.10767637 -0.21138655,0.1173958 -0.23136932,-0.1173958 z"
+         id="path44" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#fefe00;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="m 0,-0.53743199 0.21221376,0.099116 L 0,-0.33063965 -0.21221376,-0.43831602 Z"
+         id="path46" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#fefe00;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="m -0.23200531,-0.64654708 0.19598755,0.0915374 -0.21221377,0.099116 -0.19534254,-0.099116 z"
+         id="path48" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#fefe00;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="m 0.48258386,-0.53743199 0.22908498,0.099116 -0.19388542,0.10767637 -0.23054211,-0.10767637 z"
+         id="path50" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#fefe00;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="m 0.23200531,-0.64654708 0.21156876,0.0915374 -0.19534254,0.099116 -0.21221377,-0.099116 z"
+         id="path52" />
+      <path
+         style="baseline-shift:baseline;display:inline;overflow:visible;opacity:1;vector-effect:none;fill:#fefe00;stroke-width:0;stroke-linejoin:miter;stroke-opacity:1;paint-order:markers stroke fill;enable-background:accumulate;stop-color:#000000"
+         d="m 0,-0.74757065 0.19598755,0.084796 L 0,-0.57123721 -0.19598755,-0.66277461 Z"
+         id="path54" />
+    </g>
   </g>
 </svg>
