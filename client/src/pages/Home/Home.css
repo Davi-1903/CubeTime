@@ -1,0 +1,33 @@
+.home-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.home-container .message {
+    font: bold 2.4rem var(--font-base);
+    color: var(--text-color);
+}
+
+.home-container .message > span {
+    color: hsl(from var(--base-color6) h s calc(l - 10));
+}
+
+.home-container button {
+    cursor: pointer;
+    padding: 1rem 4rem;
+    border-radius: 1rem;
+    background-color: hsl(from var(--base-color2) h s calc(l - 5));
+    transition: all 250ms;
+
+    &:hover {
+        box-shadow: 0 0 1rem var(--base-color2);
+    }
+}
+
+.home-container button>svg {
+    stroke: var(--base-color1);
+}
