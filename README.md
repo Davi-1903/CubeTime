@@ -38,17 +38,20 @@ Sistema simples de cronometragem para tempos no cubo mágico com `React` + `Flas
     DATABASE_URI="mysql+pymysql://root<SENHA?>@localhost<PORTA/db_cubetime"
     ```
 
-5. **Inicie os 2 servidores para o desenvolvimento**
+5. **Gere o `build`**
 
     ```bash
-    # Backend
-    flask run --debug
+    cd ../client
+    npm run build
+    ```
 
-    # Frontend
-    npm run dev
+6. **Execute a aplicação**
+
+    ```bash
+    flask run
     ```
 
 > [!TIP]
 > Use ambiente virtual 😉
 
-Se tudo ocorrer bem, a aplicação está rodando em [`http://localhost:3000`](http://localhost:3000)
+Se tudo ocorrer bem, a aplicação está rodando em [`http://localhost:5000`](http://localhost:5000)
