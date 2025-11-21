@@ -1,13 +1,11 @@
-<p align='center'>
+<div align='center'>
     <img
         src='client/public/assets/images/logo.svg'
         alt='Logo'
         loading='lazy'
     >
-    <h1 style='text-align: center; margin-bottom: 2rem; border-bottom: none'>CubeTime</h1>
-</p>
-
----
+    <h1 style='margin-bottom: 2rem; border-bottom: none'>CubeTime</h1>
+</div>
 
 Sistema simples de cronometragem para tempos no cubo mágico com `React` + `Flask` + `MySQL`
 
