@@ -8,6 +8,7 @@ import Layout from './Layout.jsx';
 import Home from './pages/Home/Home.jsx';
 import Profile from './pages/Profile/Profile.jsx';
 import Stopwatcher from './pages/Stopwatcher/Stopwatcher.jsx';
+import Error404 from './pages/Errors/404.jsx';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
             { path: 'cronometro', element: <Stopwatcher /> },
         ],
     },
+    { path: '*', element: <Error404 /> },
 ]);
 
 createRoot(document.getElementById('root')).render(
