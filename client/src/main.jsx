@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AuthenticatedProvider } from './context/AuthContext.jsx';
 import { OpenAuthProvider } from './context/OpenAuth.jsx';
 import { MessagesProvider } from './context/MessagesContext.jsx';
-import App from './App.jsx';
+import Layout from './Layout.jsx';
 import Home from './pages/Home/Home.jsx';
 import Profile from './pages/Profile/Profile.jsx';
 import Stopwatcher from './pages/Stopwatcher/Stopwatcher.jsx';
@@ -13,7 +13,7 @@ import './index.css';
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <App />,
+        element: <Layout />,
         children: [
             { index: true, element: <Home /> },
             { path: 'perfil', element: <Profile /> },

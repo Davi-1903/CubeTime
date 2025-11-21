@@ -1,4 +1,3 @@
-import Header from '../../components/Header/Header';
 import SignIn from '../Auth/SignIn';
 import SignUp from '../Auth/SignUp';
 import { useOpenSignIn, useOpenSignUp } from '../../context/OpenAuth';
@@ -10,7 +9,6 @@ export default function LandingPage() {
 
     return (
         <>
-            <Header />
             {openSignIn && <SignIn />}
             {openSignUp && <SignUp />}
             <div className='welcome-container'>

@@ -1,9 +1,11 @@
-import HomeLayout from './pages/Home/LayoutHome';
-import LandingPage from './pages/LandingPage/LandingPage';
+import { Outlet } from 'react-router-dom';
+import Header from './components/Header/Header';
+import Sidebar from './components/Sidebar/Sidebar';
 import Footer from './components/Footer/Footer';
+import Message from './components/Message/Message';
+import LandingPage from './pages/LandingPage/LandingPage';
 import { useAuthenticated } from './context/AuthContext';
 import { useMessages } from './context/MessagesContext';
-import Message from './components/Message/Message';
 
 export default function App() {
     const { isAuthenticated } = useAuthenticated();
@@ -17,7 +19,8 @@ export default function App() {
                     return <Message key={message.id} {...newMessage} />;
                 })}
             </div>
-            {isAuthenticated ? <HomeLayout /> : <LandingPage />}
+            {isAuthenticated ? <Sidebar /> : <Header />}
+            {isAuthenticated ? <Outlet /> : <LandingPage />}
             <Footer />
         </div>
     );
