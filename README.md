@@ -35,7 +35,7 @@ Sistema simples de cronometragem para tempos no cubo mágico com `React` + `Flas
 
     ```.env
     SECRET_KEY="<CHAVE SECRETA>"
-    DATABASE_URI="mysql+pymysql://root<SENHA?>@localhost<PORTA/db_cubetime"
+    DATABASE_URI="mysql+pymysql://root<SENHA?>@localhost<PORTA>/db_cubetime"
     ```
 
 5. **Gere o `build`**
