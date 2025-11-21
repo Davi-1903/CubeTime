@@ -4,63 +4,128 @@
     place-items: center;
 }
 
+.stopwatcher-container .best-time {
+    text-align: center;
+    color: hsl(from var(--base-color1) h s calc(l - 10));
+    font: bold 2rem var(--font-base);
+}
+
 .stopwatcher-container #stopwatcher {
     font: bold 6rem var(--font-base);
     color: var(--text-color);
 }
 
-.stopwatcher-container > .stopwatcher-content .functions-container {
-    margin-top: 2rem;
+.stopwatcher-container>.stopwatcher-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.stopwatcher-container>.stopwatcher-content .functions-container {
     display: flex;
     gap: 2rem;
 }
 
-.stopwatcher-container > .stopwatcher-content .functions-container button {
+.stopwatcher-container>.stopwatcher-content .functions-container button {
     cursor: pointer;
     flex: 1 1 0;
     border-radius: 1rem;
     padding: 1rem 4rem;
     transition: all 250ms;
 
-    & > svg {
+    &>svg {
         stroke: var(--base-color1);
     }
 }
 
-.stopwatcher-container > .stopwatcher-content .functions-container #start {
+.stopwatcher-container>.stopwatcher-content .functions-container #start {
     background-color: hsl(from var(--base-color6) h s calc(l - 5));
 
-    & > svg {
+    &>svg {
         fill: var(--base-color1)
     }
-    
+
     &:hover {
         box-shadow: 0 0 1rem var(--base-color6);
     }
 }
 
-.stopwatcher-container > .stopwatcher-content .functions-container #stop {
+.stopwatcher-container>.stopwatcher-content .functions-container #save {
+    background-color: hsl(from var(--base-color6) h s calc(l - 5));
+    font: normal 1.6rem var(--font-base);
+    color: var(--base-color1);
+    line-height: 36px;
+
+    &>svg {
+        stroke: var(--base-color1);
+    }
+
+    &:hover {
+        box-shadow: 0 0 1rem var(--base-color6);
+    }
+}
+
+.stopwatcher-container>.stopwatcher-content .functions-container #stop {
     background-color: hsl(from var(--base-color5) h s calc(l - 5));
-    
-    & > svg {
+
+    &>svg {
         fill: var(--base-color1)
     }
-    
+
     &:hover {
         box-shadow: 0 0 1rem var(--base-color5);
     }
 }
 
-.stopwatcher-container > .stopwatcher-content .functions-container #refresh {
+.stopwatcher-container>.stopwatcher-content .functions-container #clear {
+    background-color: hsl(from var(--base-color5) h s calc(l - 5));
+    font: normal 1.6rem var(--font-base);
+    color: var(--base-color1);
+    line-height: 36px;
+
+    &>svg {
+        stroke: var(--base-color1)
+    }
+
+    &:hover {
+        box-shadow: 0 0 1rem var(--base-color5);
+    }
+}
+
+.stopwatcher-container>.stopwatcher-content .functions-container #refresh {
     background-color: hsl(from var(--base-color2) h s calc(l - 5));
-    
+
     &:hover {
         box-shadow: 0 0 1rem var(--base-color2);
     }
-    
+
     &:disabled {
         cursor: not-allowed;
         background-color: hsl(from var(--base-color2) h calc(s - 40) calc(l - 40));
         box-shadow: none;
     }
+}
+
+.times-content {
+    margin-inline: auto;
+    padding: 0.5rem;
+}
+
+.times-content .times-list>li {
+    padding: 0.5rem;
+    font: normal 1.6rem var(--font-base);
+    color: hsl(from var(--base-color1) h s calc(l - 20));
+}
+
+.times-content .media {
+    padding: 0.5rem;
+    font: bold 1.6rem var(--font-base);
+}
+
+.times-content .media.positive {
+    color: hsl(from var(--base-color6) h s calc(l - 10));
+}
+
+.times-content .media.negative {
+    color: hsl(from var(--base-color5) h s calc(l - 10));
 }

@@ -11,6 +11,7 @@ class User(UserMixin, Base):
     name = Column(String(100), nullable=False)
     email = Column(String(100), nullable=False, unique=True)
     password = Column(String(150), nullable=False)
+    best_time = Column(Integer) # Tempo em milisegundos
 
     @classmethod
     def get(cls, user_id: int) -> 'User | None':

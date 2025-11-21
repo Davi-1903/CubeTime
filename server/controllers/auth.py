@@ -50,6 +50,7 @@ def login():
 
             login_user(user)
             return jsonify({'ok': True, 'message': 'Usuário autenticado com sucesso'}), 200
+        
         except VerifyMismatchError:
             return jsonify({'ok': False, 'message': 'Senha incorreta'}), 401
         
