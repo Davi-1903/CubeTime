@@ -2,7 +2,6 @@ import { IconUser, IconStopwatch, IconLogout, IconDashboard } from '@tabler/icon
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthenticated } from '../../context/AuthContext';
 import { useMessages } from '../../context/MessagesContext';
-import './Sidebar.css';
 
 export default function Sidebar() {
     const { setAuthenticated } = useAuthenticated();
@@ -25,35 +24,38 @@ export default function Sidebar() {
     }
 
     return (
-        <nav className='sidebar'>
-            <div className='sidebar-container'>
-                <div className='sidebar-content'>
-                    <img src='assets/images/logo.svg' alt='Logo' className='logo' />
-                    <ul className='menu'>
+        <nav>
+            <div className='bg-color1-light shadow-basic sticky top-4 m-4 h-[calc(100vh-2rem)] rounded-2xl p-4'>
+                <div className='flex h-full flex-col items-center gap-4'>
+                    <img src='assets/images/logo.svg' alt='Logo' className='w-full' />
+                    <ul className='flex h-full flex-col gap-4'>
                         <li>
                             <Link to='/'>
-                                <button>
-                                    <IconDashboard size={24} />
+                                <button className='hover:bg-color1-dark cursor-pointer rounded-lg bg-transparent p-2 transition-all duration-125'>
+                                    <IconDashboard size={24} className='stroke-color-text-normal' />
                                 </button>
                             </Link>
                         </li>
                         <li>
                             <Link to='/cronometro'>
-                                <button>
-                                    <IconStopwatch size={24} />
+                                <button className='hover:bg-color1-dark cursor-pointer rounded-lg bg-transparent p-2 transition-all duration-125'>
+                                    <IconStopwatch size={24} className='stroke-color-text-normal' />
                                 </button>
                             </Link>
                         </li>
                         <li>
                             <Link to='/perfil'>
-                                <button>
-                                    <IconUser size={24} />
+                                <button className='hover:bg-color1-dark cursor-pointer rounded-lg bg-transparent p-2 transition-all duration-125'>
+                                    <IconUser size={24} className='stroke-color-text-normal' />
                                 </button>
                             </Link>
                         </li>
                         <li>
-                            <button id='logout-btn' onClick={handleLogout}>
-                                <IconLogout size={24} />
+                            <button
+                                className='hover:bg-color1-dark cursor-pointer rounded-lg bg-transparent p-2 transition-all duration-125'
+                                onClick={handleLogout}
+                            >
+                                <IconLogout size={24} className='stroke-color5-dark' />
                             </button>
                         </li>
                     </ul>

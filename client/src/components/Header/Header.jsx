@@ -1,62 +1,81 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { IconMenu2, IconX } from '@tabler/icons-react';
 import { Link } from 'react-router-dom';
 import { useOpenSignIn, useOpenSignUp } from '../../context/OpenAuth';
 import Logo from '/assets/images/logo.svg';
-import './Header.css';
 
 export default function Header() {
     const { setOpenSignIn } = useOpenSignIn();
     const { setOpenSignUp } = useOpenSignUp();
-    const [isOpenSidebar, setOpenSidebar] = useState(false);
+    const [lockScroll, setLockScroll] = useState(false);
+    const [isOpenMenu, setOpenMenu] = useState(false);
 
     function handleOpenSignIn() {
-        setOpenSidebar(false);
+        closeMenu();
         setOpenSignIn(true);
-        document.body.style.overflow = 'hidden';
+        setLockScroll(true);
     }
 
     function handleOpenSignUp() {
-        setOpenSidebar(false);
+        closeMenu();
         setOpenSignUp(true);
-        document.body.style.overflow = 'hidden';
+        setLockScroll(true);
     }
 
-    function toggleSidebar() {
-        setOpenSidebar(!isOpenSidebar);
+    function toggleMenu() {
+        if (!isOpenMenu) {
+            setOpenMenu(true);
+            setLockScroll(true);
+        } else {
+            closeMenu();
+        }
     }
+
+    const closeMenu = useCallback(() => {
+        if (isOpenMenu) {
+            setOpenMenu(false);
+            setLockScroll(false);
+        }
+    }, [isOpenMenu]);
 
     useEffect(() => {
-        function handleResize() {
-            setOpenSidebar(false);
-        };
+        window.addEventListener('resize', closeMenu);
+        return () => window.removeEventListener('resize', closeMenu);
+    }, [closeMenu]);
 
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+    useEffect(() => {
+        document.body.style.overflowY = lockScroll ? 'hidden' : 'auto';
+    }, [lockScroll]);
 
     return (
-        <header>
-            <div className='header-container'>
-                <Link to='/'>
-                    <img src={Logo} alt='Logo' className='logo' />
+        <header className='w-header bg-header shadow-basic h-header fixed top-4 left-[calc(50%+1rem)] z-2 -translate-x-[calc(50%+1rem)] rounded-2xl px-8 py-4'>
+            <div className='flex h-full items-center justify-between'>
+                <Link to='/' className='z-1'>
+                    <img src={Logo} alt='Logo' className='aspect-square h-12' />
                 </Link>
-                <nav className={isOpenSidebar ? 'open' : ''}>
-                    <ul className='menu'>
+                <nav className={isOpenMenu ? 'nav-header' : 'hidden sm:block'}>
+                    <ul className='flex gap-8'>
                         <li>
-                            <button id='signin' onClick={handleOpenSignIn}>
+                            <button className='signin' onClick={handleOpenSignIn}>
                                 SignIn
                             </button>
                         </li>
                         <li>
-                            <button id='signup' onClick={handleOpenSignUp}>
+                            <button className='signup' onClick={handleOpenSignUp}>
                                 SignUp
                             </button>
                         </li>
                     </ul>
                 </nav>
-                <button className='menu-btn' onClick={toggleSidebar}>
-                    {isOpenSidebar ? <IconX size={32} /> : <IconMenu2 size={32} />}
+                <button
+                    className='hover:bg-color1-dark z-1 cursor-pointer rounded-lg bg-transparent p-2 transition-all duration-125 sm:hidden'
+                    onClick={toggleMenu}
+                >
+                    {isOpenMenu ? (
+                        <IconX size={32} className='stroke-color-text-normal' />
+                    ) : (
+                        <IconMenu2 size={32} className='stroke-color-text-normal' />
+                    )}
                 </button>
             </div>
         </header>

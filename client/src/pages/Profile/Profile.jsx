@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthenticated } from '../../context/AuthContext';
 import { useMessages } from '../../context/MessagesContext';
 import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
-import './Profile.css';
 
 export default function Profile() {
     const [user, setUser] = useState({ name: '', email: '' });
@@ -80,24 +79,32 @@ export default function Profile() {
 
     return (
         <PrivateRoute>
-            <div className='profile-container'>
-                <article>
-                    <div className='foto-perfil'>{user.name[0]?.toUpperCase()}</div>
-                    <div className='input-label'>
-                        <label htmlFor='name'>Nome</label>
+            <div className='grid min-h-screen place-items-center'>
+                <article className='bg-color1-light shadow-basic flex w-sm flex-col gap-8 rounded-2xl p-8'>
+                    <div className='font-primary text-color1-normal bg-color2-normal mx-[30%] grid aspect-square w-4/10 place-items-center rounded-full text-6xl font-bold'>
+                        {user.name[0]?.toUpperCase()}
+                    </div>
+                    <div>
+                        <label htmlFor='name' className='font-secundary text-color-text-normal block text-lg'>
+                            Nome
+                        </label>
                         <input
                             type='text'
                             id='name'
+                            className='text-md font-secundary bg-color1-dark aspect-20/3 w-full rounded-lg px-4 outline-0'
                             value={isEditing ? formData.name : user.name}
                             onChange={e => setFormData({ ...formData, name: e.target.value })}
                             readOnly={!isEditing}
                         />
                     </div>
-                    <div className='input-label'>
-                        <label htmlFor='email'>Email</label>
+                    <div>
+                        <label htmlFor='email' className='font-secundary text-color-text-normal block text-lg'>
+                            Email
+                        </label>
                         <input
                             type='email'
                             id='email'
+                            className='text-md font-secundary bg-color1-dark aspect-20/3 w-full rounded-lg px-4 outline-0'
                             value={isEditing ? formData.email : user.email}
                             onChange={e => setFormData({ ...user, email: e.target.value })}
                             readOnly={!isEditing}
@@ -105,19 +112,31 @@ export default function Profile() {
                     </div>
                     {isEditing ? (
                         <>
-                            <button id='save' onClick={handleEditing}>
+                            <button
+                                className='font-secundary bg-color6-dark hover:shadow-color6 text-color1-normal aspect-20/3 cursor-pointer rounded-lg text-lg transition-all duration-125'
+                                onClick={handleEditing}
+                            >
                                 Save
                             </button>
-                            <button id='cancel' onClick={handleIsEditing}>
+                            <button
+                                className='font-secundary bg-color5-dark hover:shadow-color5 text-color1-normal aspect-20/3 cursor-pointer rounded-lg text-lg transition-all duration-125'
+                                onClick={handleIsEditing}
+                            >
                                 Cancel
                             </button>
                         </>
                     ) : (
                         <>
-                            <button id='editar' onClick={handleIsEditing}>
+                            <button
+                                className='font-secundary bg-color2-dark hover:shadow-color2 text-color1-normal aspect-20/3 cursor-pointer rounded-lg text-lg transition-all duration-125'
+                                onClick={handleIsEditing}
+                            >
                                 Editar
                             </button>
-                            <button id='excluir' onClick={handleDelete}>
+                            <button
+                                className='font-secundary bg-color5-dark hover:shadow-color5 text-color1-normal aspect-20/3 cursor-pointer rounded-lg text-lg transition-all duration-125'
+                                onClick={handleDelete}
+                            >
                                 Excluir
                             </button>
                         </>

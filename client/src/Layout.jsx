@@ -13,7 +13,7 @@ export default function App() {
 
     return (
         <div className='wrapper'>
-            <div className='messages-container'>
+            <div className='pointer-events-none fixed top-4 right-4 z-4 flex flex-col gap-4'>
                 {messagesList.map((message, idx) => {
                     const newMessage = { ...message, idx: idx };
                     return <Message key={message.id} {...newMessage} />;

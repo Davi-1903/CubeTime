@@ -3,7 +3,6 @@ import { IconEye, IconEyeOff, IconUser } from '@tabler/icons-react';
 import { useOpenSignIn, useOpenSignUp } from '../../context/OpenAuth';
 import { useAuthenticated } from '../../context/AuthContext';
 import { useMessages } from '../../context/MessagesContext';
-import './Forms.css';
 
 export default function SignIn() {
     const { setOpenSignIn } = useOpenSignIn();
@@ -80,47 +79,69 @@ export default function SignIn() {
     return (
         <div
             ref={containerRef}
-            className={`form-container ${isClosing ? 'fade-out' : 'fade-in'}`}
+            className={`bg-background-blur fixed inset-0 z-3 grid place-items-center opacity-0 backdrop-blur-lg ${isClosing ? 'fade-out' : 'fade-in'}`}
             onAnimationEnd={handleAnimationEnd}
         >
-            <form ref={formRef} onSubmit={handleSubmit}>
-                <h2>SignIn</h2>
-                <div className='input-label'>
-                    <label htmlFor='email'>Email</label>
-                    <div className='input-content'>
+            <form ref={formRef} className='form' onSubmit={handleSubmit}>
+                <h2 className='font-primary text-color-text-normal text-4xl font-bold'>SignIn</h2>
+                <div>
+                    <label htmlFor='email' className='text-md font-secundary text-color-text-normal block'>
+                        Email
+                    </label>
+                    <div className='relative'>
                         <input
                             type='email'
                             id='email'
                             placeholder='exemplo@email.com'
+                            className='bg-color1-dark text-md font-secundary min-h-12 w-full rounded-lg pr-12 pl-4 outline-0'
                             value={formData.email}
                             onChange={e => setFormData({ ...formData, email: e.target.value })}
                             required
                         />
-                        <label htmlFor='email' className='icon-container'>
-                            <IconUser />
+                        <label
+                            htmlFor='email'
+                            className='hover:bg-color1-normal absolute top-1/10 right-[0.3rem] grid aspect-square h-8/10 cursor-pointer place-items-center rounded-sm bg-transparent transition-all duration-125'
+                        >
+                            <IconUser className='stroke-color-text-normal' />
                         </label>
                     </div>
                 </div>
                 <div className='input-label'>
-                    <label htmlFor='password'>Senha</label>
-                    <div className='input-content'>
+                    <label htmlFor='password' className='text-md font-secundary text-color-text-normal block'>
+                        Senha
+                    </label>
+                    <div className='relative'>
                         <input
                             type={showPassword ? 'text' : 'password'}
                             id='password'
                             placeholder='Sua senha...'
+                            className='bg-color1-dark text-md font-secundary min-h-12 w-full rounded-lg pr-12 pl-4 outline-0'
                             value={formData.password}
                             onChange={e => setFormData({ ...formData, password: e.target.value })}
                             required
                         />
-                        <button type='button' className='icon-container' onClick={toggleShowPassword}>
-                            {showPassword ? <IconEye size={26} /> : <IconEyeOff size={26} />}
+                        <button
+                            type='button'
+                            className='hover:bg-color1-normal absolute top-1/10 right-[0.3rem] grid aspect-square h-8/10 cursor-pointer place-items-center rounded-sm bg-transparent transition-all duration-125'
+                            onClick={toggleShowPassword}
+                        >
+                            {showPassword ? (
+                                <IconEye size={26} className='stroke-color-text-normal' />
+                            ) : (
+                                <IconEyeOff size={26} className='stroke-color-text-normal' />
+                            )}
                         </button>
                     </div>
                 </div>
-                <button type='submit'>Entrar</button>
-                <p>
+                <button
+                    type='submit'
+                    className='font-primary bg-color-text-normal text-color1-normal hover:shadow-text-color min-h-12 cursor-pointer rounded-lg text-lg transition-all duration-125'
+                >
+                    Entrar
+                </button>
+                <p className='text-md font-secundary'>
                     Não tem uma conta?{' '}
-                    <span className='link' onClick={handleChangeForm}>
+                    <span className='text-color-text-normal cursor-pointer hover:underline' onClick={handleChangeForm}>
                         SignUp
                     </span>
                 </p>
