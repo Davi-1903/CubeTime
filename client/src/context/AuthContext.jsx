@@ -4,16 +4,18 @@ const AuthenticatedContext = createContext();
 
 export function AuthenticatedProvider({ children }) {
     const [isAuthenticated, setAuthenticated] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         fetch('/api/auth/check', { credentials: 'include' })
             .then(res => setAuthenticated(res.status === 200))
-            .finally(() => setIsLoading(false));
+            .catch(err => {
+                setAuthenticated(false);
+                console.error(err);
+            });
     }, []);
 
     return (
-        <AuthenticatedContext.Provider value={{ isAuthenticated, setAuthenticated, isLoading }}>
+        <AuthenticatedContext.Provider value={{ isAuthenticated, setAuthenticated }}>
             {children}
         </AuthenticatedContext.Provider>
     );

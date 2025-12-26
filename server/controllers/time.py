@@ -23,13 +23,13 @@ def format_time(time: int) -> str:
     return f'{millisecunds}ms'
 
 
-@time_bp.route('/')
+@time_bp.get('/')
 @login_required
 def get_time():
     return jsonify({'ok': True, 'time': current_user.best_time}), 200
 
 
-@time_bp.route('/new', methods=['POST'])
+@time_bp.post('/new')
 @login_required
 def new_time():
     with Session() as session:

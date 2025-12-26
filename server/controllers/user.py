@@ -8,7 +8,7 @@ from models.user import User
 user_bp = Blueprint('user', __name__, url_prefix='/api/user')
 
 
-@user_bp.route('/')
+@user_bp.get('/')
 @login_required
 def fecht_user():
     return jsonify({
@@ -17,7 +17,7 @@ def fecht_user():
     })
 
 
-@user_bp.route('/delete', methods=['DELETE'])
+@user_bp.delete('/delete')
 @login_required
 def delete_user():
     with Session() as session:
@@ -32,7 +32,7 @@ def delete_user():
             return jsonify({'ok': False, 'message': 'Ocorreu um erro interno'}), 500
 
 
-@user_bp.route('/edit', methods=['PATCH'])
+@user_bp.patch('/edit')
 @login_required
 def edit_user():
     with Session() as session:

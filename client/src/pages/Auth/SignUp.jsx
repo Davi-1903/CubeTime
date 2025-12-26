@@ -3,6 +3,7 @@ import { IconEye, IconEyeOff, IconMail, IconUser } from '@tabler/icons-react';
 import { useAuthenticated } from '../../context/AuthContext';
 import { useOpenSignIn, useOpenSignUp } from '../../context/OpenAuth';
 import { useMessages } from '../../context/MessagesContext';
+import getCSRF from '../../api/csrf';
 
 export default function SignUp() {
     const { setOpenSignUp } = useOpenSignUp();
@@ -21,11 +22,16 @@ export default function SignUp() {
 
     async function handleSubmit(event) {
         event.preventDefault();
+        const csrf = await getCSRF();
 
         try {
             const response = await fetch('/api/auth/register', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrf,
+                },
                 body: JSON.stringify(formData),
             });
             const data = await response.json();

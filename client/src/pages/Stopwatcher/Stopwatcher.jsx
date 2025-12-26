@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { IconPlayerPauseFilled, IconPlayerPlayFilled, IconRefresh } from '@tabler/icons-react';
 import { useMessages } from '../../context/MessagesContext';
 import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
+import getCSRF from '../../api/csrf';
 
 export default function Stopwatcher() {
     const { setMessagesList } = useMessages();
@@ -26,11 +27,16 @@ export default function Stopwatcher() {
 
     async function handleSaveTime() {
         if (!confirm(`Você deseja salvar o tempo de ${prettierTime(calcMedia())}`)) return;
+        const csrf = await getCSRF();
 
         try {
             const response = await fetch('/api/time/new', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrf,
+                },
                 body: JSON.stringify({ time: calcMedia(timeList) }),
             });
             const data = await response.json();

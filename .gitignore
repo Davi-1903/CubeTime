@@ -12,7 +12,8 @@ dist
 dist-ssr
 *.local
 
-# Ambiente virtual
+# Variáveis de ambiente e ambiente virtual
+.env*
 env/
 .env/
 venv/
@@ -22,9 +23,6 @@ ENV/
 # Arquivos cache do Python
 __pycache__/
 *.pyc
-
-# Variáveis de ambiente
-.env
 
 # Editor directories and files
 .vscode/*

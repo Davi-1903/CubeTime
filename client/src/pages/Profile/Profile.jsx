@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthenticated } from '../../context/AuthContext';
 import { useMessages } from '../../context/MessagesContext';
 import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
+import getCSRF from '../../api/csrf';
 
 export default function Profile() {
     const [user, setUser] = useState({ name: '', email: '' });
@@ -14,9 +15,14 @@ export default function Profile() {
 
     async function handleDelete() {
         if (!confirm('Você tem certeza que deseja apagar sua conta?')) return;
+        const csrf = await getCSRF();
 
         try {
-            const response = await fetch('/api/user/delete', { method: 'DELETE', credentials: 'include' });
+            const response = await fetch('/api/user/delete', {
+                method: 'DELETE',
+                credentials: 'include',
+                headers: { 'X-CSRFToken': csrf },
+            });
             const data = await response.json();
             if (!data.ok) throw new Error(data.message);
 
@@ -35,11 +41,16 @@ export default function Profile() {
             return;
         }
         if (isDiferent && !confirm('Você deseja realizar essas mudanças?')) return;
+        const csrf = await getCSRF();
 
         try {
             const response = await fetch('/api/user/edit', {
                 method: 'PATCH',
-                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrf,
+                },
                 body: JSON.stringify(formData),
             });
             const data = await response.json();

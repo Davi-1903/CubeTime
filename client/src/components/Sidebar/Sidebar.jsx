@@ -2,6 +2,7 @@ import { IconUser, IconStopwatch, IconLogout, IconDashboard } from '@tabler/icon
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthenticated } from '../../context/AuthContext';
 import { useMessages } from '../../context/MessagesContext';
+import getCSRF from '../../api/csrf';
 
 export default function Sidebar() {
     const { setAuthenticated } = useAuthenticated();
@@ -10,9 +11,14 @@ export default function Sidebar() {
 
     async function handleLogout() {
         if (!confirm('Você realmente deseja sair?')) return;
+        const csrf = await getCSRF();
 
         try {
-            const response = await fetch('/api/auth/logout', { credentials: 'include' });
+            const response = await fetch('/api/auth/logout', {
+                method: 'POST',
+                credentials: 'include',
+                headers: { 'X-CSRFToken': csrf },
+            });
             const data = await response.json();
             if (!data.ok) throw new Error(data.message);
 

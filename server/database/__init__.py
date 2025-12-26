@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker, DeclarativeBase
 
 
 DATABASE_URI = os.environ.get('DATABASE_URI')
-if DATABASE_URI is None:
+if DATABASE_URI is None or DATABASE_URI == '':
     raise RuntimeError('DATABASE_URI não foi definida')
 
 engine = create_engine(DATABASE_URI)

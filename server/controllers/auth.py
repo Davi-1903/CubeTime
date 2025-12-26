@@ -2,6 +2,7 @@ from argon2 import PasswordHasher
 from argon2.exceptions import VerifyMismatchError
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, login_user, logout_user
+from flask_wtf.csrf import generate_csrf
 from database import Session
 from models.user import User
 
@@ -10,7 +11,7 @@ auth_bp = Blueprint('auth', __name__, url_prefix='/api/auth')
 ph = PasswordHasher()
 
 
-@auth_bp.route('/register', methods=['POST'])
+@auth_bp.post('/register')
 def register():
     with Session() as session:
         try:
@@ -33,7 +34,7 @@ def register():
             return jsonify({'ok': False, 'message': 'Ocorreu um erro interno'}), 500
 
 
-@auth_bp.route('/login', methods=['POST'])
+@auth_bp.post('/login')
 def login():
     with Session() as session:
         try:
@@ -58,14 +59,19 @@ def login():
             return jsonify({'ok': False, 'message': 'Ocorreu um erro interno'}), 500
 
 
-@auth_bp.route('/logout')
+@auth_bp.post('/logout')
 @login_required
 def logout():
     logout_user()
     return jsonify({'ok': True, 'message': 'O usuário saiu do sistema'}), 200
 
 
-@auth_bp.route('/check')
+@auth_bp.get('/check')
 @login_required
 def check_auth():
     return jsonify({'ok': True}), 200
+
+
+@auth_bp.get('/csrf')
+def get_token():
+    return jsonify({'csrfToken': generate_csrf()})
