@@ -25,7 +25,7 @@ def config_app(app: Flask):
     csrf = CSRFProtect(app)
 
     login_config(app)
-    init_database()
+    init_database(app)
 
 
 def login_config(app: Flask):

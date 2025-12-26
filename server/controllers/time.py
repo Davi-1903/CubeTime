@@ -1,6 +1,6 @@
+from database import db
 from flask import Blueprint, jsonify, request
 from flask_login import current_user, login_required
-from database import Session
 from models.user import User
 from math import floor
 
@@ -32,17 +32,16 @@ def get_time():
 @time_bp.post('/new')
 @login_required
 def new_time():
-    with Session() as session:
-        try:
-            data = request.get_json(silent=True)
-            if data is None:
-                return jsonify({'ok': False, 'message': 'As informações não foram recebidas'}), 401
-            
-            user = session.get(User, current_user.id)
-            user.best_time = data['time'] # type: ignore
-            session.commit()
-            return jsonify({'ok': True, 'message': f'Novo tempo registrado: {format_time(data["time"])}'}), 200
-    
-        except:
-            session.rollback()
-            return jsonify({'ok': False, 'message': 'Ocorreu um erro interno'}), 500
+    try:
+        data = request.get_json(silent=True)
+        if data is None:
+            return jsonify({'ok': False, 'message': 'As informações não foram recebidas'}), 401
+        
+        user = db.session.get(User, current_user.id)
+        user.best_time = data['time'] # type: ignore
+        db.session.commit()
+        return jsonify({'ok': True, 'message': f'Novo tempo registrado: {format_time(data["time"])}'}), 200
+
+    except:
+        db.session.rollback()
+        return jsonify({'ok': False, 'message': 'Ocorreu um erro interno'}), 500
