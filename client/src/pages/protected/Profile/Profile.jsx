@@ -9,7 +9,7 @@ export default function Profile() {
     const [user, setUser] = useState({ name: '', email: '' });
     const [formData, setFormData] = useState(null);
     const [isEditing, setEditing] = useState(false);
-    const { setAuthenticated } = useAuthenticated();
+    const { isAuthenticated, setAuthenticated } = useAuthenticated();
     const { setMessagesList } = useMessages();
     const naviage = useNavigate();
 
@@ -58,7 +58,7 @@ export default function Profile() {
 
             setEditing(false);
             fetchUser();
-            setMessagesList(prev => [...prev, { id: prev.length + 1, type: 'danger', message: data.message }]);
+            setMessagesList(prev => [...prev, { id: prev.length + 1, type: 'ok', message: data.message }]);
         } catch (err) {
             setMessagesList(prev => [...prev, { id: prev.length + 1, type: 'danger', message: err.message }]);
         }
@@ -80,9 +80,10 @@ export default function Profile() {
 
             setUser(data);
         } catch (err) {
-            setMessagesList(prev => [...prev, { id: prev.length + 1, type: 'danger', message: err.message }]);
+            if (isAuthenticated)
+                setMessagesList(prev => [...prev, { id: prev.length + 1, type: 'danger', message: err.message }]);
         }
-    }, [setMessagesList]);
+    }, [isAuthenticated, setMessagesList]);
 
     useEffect(() => {
         fetchUser();

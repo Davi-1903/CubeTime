@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { IconPlayerPauseFilled, IconPlayerPlayFilled, IconRefresh } from '@tabler/icons-react';
+import { useAuthenticated } from '../../../context/AuthContext';
 import { useMessages } from '../../../context/MessagesContext';
 import ProtectedRoute from '../../../components/ProtectedRoute/ProtectedRoute';
 import getCSRF from '../../../api/csrf';
 
 export default function Stopwatcher() {
+    const { isAuthenticated } = useAuthenticated();
     const { setMessagesList } = useMessages();
     const [bestTime, setBestTime] = useState(null);
     const [isStart, setStart] = useState(false);
@@ -21,9 +23,10 @@ export default function Stopwatcher() {
 
             setBestTime(data.time);
         } catch (err) {
-            setMessagesList(prev => [...prev, { id: prev.length + 1, type: 'danger', message: err.message }]);
+            if (isAuthenticated)
+                setMessagesList(prev => [...prev, { id: prev.length + 1, type: 'danger', message: err.message }]);
         }
-    }, [setMessagesList]);
+    }, [isAuthenticated, setMessagesList]);
 
     async function handleSaveTime() {
         if (!confirm(`Você deseja salvar o tempo de ${prettierTime(calcMedia())}`)) return;

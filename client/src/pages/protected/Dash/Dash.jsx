@@ -37,13 +37,11 @@ export default function Dash() {
             ) : (
                 <h1 className='font-primary text-color-text-normal text-4xl font-bold'>Não há tempo registrado</h1>
             )}
-            <div className='bg-color2-dark hover:shadow-color2 cursor-pointer rounded-2xl px-16 py-4 transition-all duration-250'>
-                <Link to='/cronometro'>
-                    <button>
-                        <IconStopwatch size={36} className='stroke-color1-normal' />
-                    </button>
-                </Link>
-            </div>
+            <Link to='/cronometro'>
+                <button className='bg-color2-dark hover:shadow-color2 cursor-pointer rounded-2xl px-16 py-4 transition-all duration-250'>
+                    <IconStopwatch size={36} className='stroke-color1-normal' />
+                </button>
+            </Link>
         </ProtectedRoute>
     );
 }
