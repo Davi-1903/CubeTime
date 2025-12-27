@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IconStopwatch } from '@tabler/icons-react';
-import { useMessages } from '../../context/MessagesContext';
+import { useMessages } from '../../../context/MessagesContext';
+import ProtectedRoute from '../../../components/ProtectedRoute/ProtectedRoute';
 
-export default function Home() {
+export default function Dash() {
     const { setMessagesList } = useMessages();
     const [bestTime, setBestTime] = useState(null);
 
@@ -28,7 +29,7 @@ export default function Home() {
     }, [setMessagesList]);
 
     return (
-        <div className='flex h-full flex-col items-center justify-center gap-8'>
+        <ProtectedRoute isPrivate={true}>
             {bestTime ? (
                 <h1 className='font-primary text-color-text-normal text-4xl font-bold'>
                     Best time: <span className='text-color6-dark'>{prettierTime(bestTime)}</span>
@@ -43,6 +44,6 @@ export default function Home() {
                     </button>
                 </Link>
             </div>
-        </div>
+        </ProtectedRoute>
     );
 }

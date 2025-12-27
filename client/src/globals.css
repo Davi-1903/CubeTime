@@ -11,7 +11,7 @@
 }
 
 :root {
-    --height-header: 5rem;
+    --height-header: 4rem;
 
     --base-color1: #f0f0ff;
     --base-color2: #4060ef;
@@ -28,7 +28,7 @@
 @theme inline {
     /* ============================== CABEÇALHO ============================== */
     --height-header: var(--height-header);
-    --width-header: min(100rem, calc(100% - 2rem));
+    --width-header: min(100rem, calc(100% - 1rem));
     --color-header: hsl(from var(--base-color1) h s calc(l + 10));
 
     /* ============================== CORES ============================== */
@@ -59,8 +59,6 @@
     --color-color-text-light: hsl(from var(--text-color) h s calc(l + 5));
     --color-color-text-normal: hsl(from var(--text-color) h s l);
     --color-color-text-dark: hsl(from var(--text-color) h s calc(l - 5));
-
-    --color-background-blur: hsl(from var(--text-color) h s l / 0.1);
 
     --color-danger: hsl(from var(--base-color5) h s calc(l - 5) / 0.75);
     --color-ok: hsl(from var(--base-color6) h s calc(l - 5) / 0.75);
@@ -136,9 +134,9 @@
 
     .signup {
         cursor: pointer;
-        padding: 0.5rem 1rem;
+        padding: calc(0.5rem + 2px) calc(1rem + 2px);
         border-radius: 0.5rem;
-        font: normal 1rem var(--font-primary);
+        font: normal 0.9rem var(--font-primary);
         color: var(--base-color1);
         transition: all 250ms ease;
         background-image: linear-gradient(135deg,
@@ -154,7 +152,7 @@
         cursor: pointer;
         padding: 0.5rem 1rem;
         border-radius: 0.5rem;
-        font: normal 1rem var(--font-primary);
+        font: normal 0.9rem var(--font-primary);
         color: var(--base-color1);
         transition: all 250ms ease;
         border: 2px solid hsl(from var(--base-color6) h s calc(l - 5));
@@ -169,7 +167,7 @@
     }
 
     .form {
-        background-color: var(--base-color1);
+        background-color: hsl(from var(--base-color1) h s calc(l + 10));
         border-radius: 1rem;
         padding: 2rem;
         width: clamp(20rem, 80%, 24rem);
@@ -178,14 +176,6 @@
         gap: 2rem;
         box-shadow: 0 0 2rem hsl(from var(--text-color) h s l / 0.5);
     }
-}
-
-@utility title-cliptext {
-    background-clip: text;
-    background-image: linear-gradient(to right,
-            var(--base-color2),
-            var(--base-color3),
-            var(--base-color4));
 }
 
 @utility animate-title {

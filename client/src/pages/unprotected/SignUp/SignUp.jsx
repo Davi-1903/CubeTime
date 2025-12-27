@@ -1,24 +1,21 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { IconEye, IconEyeOff, IconMail, IconUser } from '@tabler/icons-react';
-import { useAuthenticated } from '../../context/AuthContext';
-import { useOpenSignIn, useOpenSignUp } from '../../context/OpenAuth';
-import { useMessages } from '../../context/MessagesContext';
-import getCSRF from '../../api/csrf';
+import { useAuthenticated } from '../../../context/AuthContext';
+import { useMessages } from '../../../context/MessagesContext';
+import getCSRF from '../../../api/csrf';
+import ProtectedRoute from '../../../components/ProtectedRoute/ProtectedRoute';
 
 export default function SignUp() {
-    const { setOpenSignUp } = useOpenSignUp();
-    const { setOpenSignIn } = useOpenSignIn();
     const { setAuthenticated } = useAuthenticated();
     const { setMessagesList } = useMessages();
-    const [isClosing, setClosing] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         password: '',
     });
     const [showPassword, setShowPassword] = useState(false);
-    const containerRef = useRef(null);
-    const formRef = useRef(null);
+    const navigate = useNavigate();
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -38,23 +35,11 @@ export default function SignUp() {
             if (!data.ok) throw new Error(data.message);
 
             setAuthenticated(true);
-            setOpenSignUp(false);
             document.body.style.overflow = 'auto';
             setMessagesList(prev => [...prev, { id: prev.length + 1, type: 'ok', message: data.message }]);
+            navigate('/dash');
         } catch (err) {
             setMessagesList(prev => [...prev, { id: prev.length + 1, type: 'danger', message: err.message }]);
-        }
-    }
-
-    function handleChangeForm() {
-        setOpenSignUp(false);
-        setOpenSignIn(true);
-    }
-
-    function handleAnimationEnd() {
-        if (isClosing) {
-            setOpenSignUp(false);
-            document.body.style.overflow = 'auto';
         }
     }
 
@@ -62,34 +47,9 @@ export default function SignUp() {
         setShowPassword(!showPassword);
     }
 
-    useEffect(() => {
-        function handleClick(event) {
-            if (!formRef.current?.contains(event.target)) {
-                setClosing(true);
-            }
-        }
-
-        function handleKeydown(event) {
-            if (event.key == 'Escape') {
-                setClosing(true);
-            }
-        }
-
-        document.addEventListener('mousedown', handleClick);
-        document.addEventListener('keydown', handleKeydown);
-        return () => {
-            document.removeEventListener('mousedown', handleClick);
-            document.removeEventListener('keydown', handleKeydown);
-        };
-    }, [setOpenSignUp]);
-
     return (
-        <div
-            ref={containerRef}
-            className={`bg-background-blur fixed inset-0 z-3 grid place-items-center opacity-0 backdrop-blur-lg ${isClosing ? 'fade-out' : 'fade-in'}`}
-            onAnimationEnd={handleAnimationEnd}
-        >
-            <form ref={formRef} className='form' onSubmit={handleSubmit}>
+        <ProtectedRoute isPrivate={false}>
+            <form className='form' onSubmit={handleSubmit}>
                 <h2 className='font-primary text-color-text-normal text-4xl font-bold'>SignUp</h2>
                 <div className='input-label'>
                     <label htmlFor='nome' className='text-md font-secundary text-color-text-normal block'>
@@ -170,11 +130,11 @@ export default function SignUp() {
                 </button>
                 <p>
                     Já tem uma conta?{' '}
-                    <span className='text-color-text-normal cursor-pointer hover:underline' onClick={handleChangeForm}>
+                    <Link to='/signin' className='text-color-text-normal cursor-pointer hover:underline'>
                         SignIn
-                    </span>
+                    </Link>
                 </p>
             </form>
-        </div>
+        </ProtectedRoute>
     );
 }

@@ -31,12 +31,12 @@ export default function Sidebar() {
 
     return (
         <nav>
-            <div className='bg-color1-light shadow-basic sticky top-4 m-4 h-[calc(100vh-2rem)] rounded-2xl p-4'>
-                <div className='flex h-full flex-col items-center gap-4'>
-                    <img src='assets/images/logo.svg' alt='Logo' className='w-full' />
+            <div className='bg-color1-light shadow-basic sticky top-4 m-2 h-[calc(100vh-1rem)] w-fit rounded-2xl p-4'>
+                <div className='flex h-full w-fit flex-col items-center gap-4'>
+                    <img src='assets/images/logo.svg' alt='Logo' className='w-4/5' />
                     <ul className='flex h-full flex-col gap-4'>
                         <li>
-                            <Link to='/'>
+                            <Link to='/dash'>
                                 <button className='hover:bg-color1-dark cursor-pointer rounded-lg bg-transparent p-2 transition-all duration-125'>
                                     <IconDashboard size={24} className='stroke-color-text-normal' />
                                 </button>
