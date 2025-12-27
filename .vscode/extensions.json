@@ -3,6 +3,7 @@
 		"ms-python.python",
 		"esbenp.prettier-vscode",
 		"dbaeumer.vscode-eslint",
-		"bradlc.vscode-tailwindcss"
+		"bradlc.vscode-tailwindcss",
+		"ms-azuretools.vscode-containers"
 	]
 }
