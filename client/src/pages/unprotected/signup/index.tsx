@@ -1,0 +1,141 @@
+import { useState, type FormEvent } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { IconEye, IconEyeOff, IconMail, IconUser } from '@tabler/icons-react';
+import { useAuthenticated } from '../../../context/authcontext';
+import { useMessages } from '../../../context/messagescontext';
+import ProtectedRoute from '../../../components/protectedroute';
+import getCSRF from '../../../api/csrf';
+
+export default function SignUp() {
+    const { setAuthenticated } = useAuthenticated();
+    const { setMessagesList } = useMessages();
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: '',
+    });
+    const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
+
+    async function handleSubmit(event: FormEvent<HTMLFormElement>): Promise<void> {
+        event.preventDefault();
+        const csrf = await getCSRF();
+
+        try {
+            const response = await fetch('/api/auth/register', {
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrf,
+                },
+                body: JSON.stringify(formData),
+            });
+            const data = await response.json();
+            if (!data.ok) throw new Error(data.message);
+
+            setAuthenticated(true);
+            document.body.style.overflow = 'auto';
+            setMessagesList(prev => [...prev, { id: prev.length + 1, type: 'ok', message: data.message }]);
+            navigate('/dash');
+        } catch (err) {
+            const message = err instanceof Error ? err.message : 'Erro desconhecido';
+            setMessagesList(prev => [...prev, { id: prev.length + 1, type: 'danger', message: message }]);
+        }
+    }
+
+    function toggleShowPassword() {
+        setShowPassword(!showPassword);
+    }
+
+    return (
+        <ProtectedRoute isPrivate={false}>
+            <form className='form' onSubmit={handleSubmit}>
+                <h2 className='font-primary text-color-text-normal text-4xl font-bold'>SignUp</h2>
+                <div className='input-label'>
+                    <label htmlFor='nome' className='text-md font-secundary text-color-text-normal block'>
+                        Nome
+                    </label>
+                    <div className='relative'>
+                        <input
+                            type='text'
+                            id='nome'
+                            placeholder='Seu nome'
+                            className='bg-color1-dark text-md font-secundary min-h-12 w-full rounded-lg pr-12 pl-4 outline-0'
+                            value={formData.name}
+                            onChange={e => setFormData({ ...formData, name: e.target.value })}
+                            required
+                        />
+                        <label
+                            htmlFor='nome'
+                            className='hover:bg-color1-normal absolute top-1/10 right-[0.3rem] grid aspect-square h-8/10 cursor-pointer place-items-center rounded-sm bg-transparent transition-all duration-125'
+                        >
+                            <IconUser size={26} className='stroke-color-text-normal' />
+                        </label>
+                    </div>
+                </div>
+                <div className='input-label'>
+                    <label htmlFor='email' className='text-md font-secundary text-color-text-normal block'>
+                        Email
+                    </label>
+                    <div className='relative'>
+                        <input
+                            type='email'
+                            id='email'
+                            placeholder='exemplo@email.com'
+                            className='bg-color1-dark text-md font-secundary min-h-12 w-full rounded-lg pr-12 pl-4 outline-0'
+                            value={formData.email}
+                            onChange={e => setFormData({ ...formData, email: e.target.value })}
+                            required
+                        />
+                        <label
+                            htmlFor='email'
+                            className='hover:bg-color1-normal absolute top-1/10 right-[0.3rem] grid aspect-square h-8/10 cursor-pointer place-items-center rounded-sm bg-transparent transition-all duration-125'
+                        >
+                            <IconMail size={26} className='stroke-color-text-normal' />
+                        </label>
+                    </div>
+                </div>
+                <div className='input-label'>
+                    <label htmlFor='password' className='text-md font-secundary text-color-text-normal block'>
+                        Senha
+                    </label>
+                    <div className='relative'>
+                        <input
+                            type={showPassword ? 'text' : 'password'}
+                            id='password'
+                            placeholder='Sua senha...'
+                            className='bg-color1-dark text-md font-secundary min-h-12 w-full rounded-lg pr-12 pl-4 outline-0'
+                            value={formData.password}
+                            onChange={e => setFormData({ ...formData, password: e.target.value })}
+                            required
+                        />
+                        <button
+                            type='button'
+                            className='hover:bg-color1-normal absolute top-1/10 right-[0.3rem] grid aspect-square h-8/10 cursor-pointer place-items-center rounded-sm bg-transparent transition-all duration-125'
+                            onClick={toggleShowPassword}
+                        >
+                            {showPassword ? (
+                                <IconEye size={26} className='stroke-color-text-normal' />
+                            ) : (
+                                <IconEyeOff size={26} className='stroke-color-text-normal' />
+                            )}
+                        </button>
+                    </div>
+                </div>
+                <button
+                    type='submit'
+                    className='font-primary bg-color-text-normal text-color1-normal hover:shadow-text-color min-h-12 cursor-pointer rounded-lg text-lg transition-all duration-125'
+                >
+                    Cadastrar-se
+                </button>
+                <p>
+                    Já tem uma conta?{' '}
+                    <Link to='/signin' className='text-color-text-normal cursor-pointer hover:underline'>
+                        SignIn
+                    </Link>
+                </p>
+            </form>
+        </ProtectedRoute>
+    );
+}
