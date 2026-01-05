@@ -30,9 +30,7 @@ __pycache__/
 *.pyc
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
+.vscode
 .idea
 .DS_Store
 *.suo
@@ -47,3 +45,4 @@ docs/*
 *.pdf
 *.docs
 *.md
+LICENSE
